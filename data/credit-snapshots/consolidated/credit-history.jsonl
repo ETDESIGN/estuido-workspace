@@ -1,0 +1,2 @@
+{"provider":"kimi","timestamp":"2026-02-16T08:20:00+08:00","credits":{"balance":12.03560,"currency":"USD","month_used":4.93474,"total_consumption":13.96440,"total_recharge":21.00000,"hold":0.00000}}
+{"provider":"openrouter","timestamp":"2026-02-16T08:21:00+08:00","credits":{"balance":9.68,"currency":"USD","started_with":10.00,"used":0.32},"transactions":[{"date":"2026-02-16T04:10:00","amount":10.00,"type":"purchase"}]}

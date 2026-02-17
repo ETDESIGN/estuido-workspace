@@ -1,0 +1,158 @@
+{
+  "$schema": "https://openclaw.ai/schemas/fallback-models.json",
+  "version": "1.0.0",
+  "description": "Model fallback chain configuration for OpenClaw",
+  "lastUpdated": "2026-02-17",
+  
+  "fallbackChain": [
+    {
+      "id": "primary",
+      "model": "moonshot/kimi-k2.5",
+      "provider": "moonshot",
+      "reason": "primary",
+      "description": "Primary brain model - best reasoning quality",
+      "costPerMTokens": 1.5,
+      "toolSupport": "confirmed",
+      "maxRetries": 2
+    },
+    {
+      "id": "quality_backup",
+      "model": "openrouter/minimax/minimax-m2.5",
+      "provider": "openrouter",
+      "reason": "quality_backup",
+      "description": "High quality backup with confirmed tool support",
+      "costPerMTokens": 0.0,
+      "toolSupport": "confirmed",
+      "maxRetries": 1,
+      "notes": "Native tool support per MiniMax docs. Listed in OpenRouter tool-calling collection."
+    },
+    {
+      "id": "free_backup_1",
+      "model": "groq/llama-3.3-70b-versatile",
+      "provider": "groq",
+      "reason": "free_backup",
+      "description": "Groq free tier - fast inference",
+      "costPerMTokens": 0.0,
+      "toolSupport": "confirmed",
+      "maxRetries": 2
+    },
+    {
+      "id": "free_backup_2", 
+      "model": "kilo/minimax/minimax-m2.5:free",
+      "provider": "kilocode",
+      "reason": "free_backup",
+      "description": "KiloCode free MiniMax - zero cost fallback",
+      "costPerMTokens": 0.0,
+      "toolSupport": "assumed",
+      "maxRetries": 1
+    },
+    {
+      "id": "cheap_backup",
+      "model": "openrouter/google/gemini-2.0-flash-001",
+      "provider": "openrouter",
+      "reason": "cheap_backup",
+      "description": "Low cost but verbose - last resort",
+      "costPerMTokens": 0.25,
+      "toolSupport": "confirmed",
+      "maxRetries": 1,
+      "notes": "Supports tools but poor tool usage patterns. Verbose output."
+    }
+  ],
+
+  "fallbackTriggers": [
+    {
+      "code": 404,
+      "action": "switch_immediately",
+      "description": "Model endpoint not found - switch without retry"
+    },
+    {
+      "code": 401,
+      "action": "refresh_key_then_retry",
+      "maxRetries": 2,
+      "description": "Auth failure - try refresh then switch"
+    },
+    {
+      "code": 429,
+      "action": "rate_limit_wait",
+      "waitSeconds": 60,
+      "description": "Rate limited - wait then retry same model"
+    },
+    {
+      "code": 503,
+      "action": "switch_immediately",
+      "description": "Service unavailable - switch immediately"
+    },
+    {
+      "code": 502,
+      "action": "retry_then_switch",
+      "maxRetries": 1,
+      "description": "Bad gateway - one retry then switch"
+    },
+    {
+      "messageContains": "tool use",
+      "action": "switch_immediately",
+      "description": "Tool-related error - model may not support tools"
+    },
+    {
+      "messageContains": "No endpoints found",
+      "action": "switch_immediately",
+      "description": "OpenRouter routing failure"
+    },
+    {
+      "messageContains": "does not support tools",
+      "action": "mark_tool_unavailable",
+      "description": "Model confirmed without tool support"
+    },
+    {
+      "messageContains": "context length exceeded",
+      "action": "truncate_and_retry",
+      "description": "Token limit hit - truncate context"
+    }
+  ],
+
+  "healthCheck": {
+    "enabled": true,
+    "intervalMinutes": 30,
+    "failureThreshold": 3,
+    "recoveryThreshold": 2,
+    "testTool": {
+      "name": "health_check_echo",
+      "description": "Simple echo for health validation",
+      "command": "echo 'health_check'"
+    }
+  },
+
+  "userPreferences": {
+    "defaultMode": "auto",
+    "allowedModes": ["strict", "auto", "manual"],
+    "strictMode": {
+      "description": "Fail immediately on any error",
+      "fallback": false
+    },
+    "autoMode": {
+      "description": "Automatic fallback on failures",
+      "fallback": true,
+      "notifyOnSwitch": true
+    },
+    "manualMode": {
+      "description": "Ask user before switching",
+      "fallback": true,
+      "confirmBeforeSwitch": true
+    },
+    "excludedModels": [],
+    "preferredOrder": null
+  },
+
+  "conversation": {
+    "preserveContext": true,
+    "preserveSystemPrompt": true,
+    "notifyOnSwitch": true,
+    "notificationTemplate": "⚠️  Switched to {model} ({reason})"
+  },
+
+  "logging": {
+    "logSwitches": true,
+    "logHealthChecks": true,
+    "retentionDays": 7
+  }
+}

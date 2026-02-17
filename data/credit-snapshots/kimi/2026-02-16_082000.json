@@ -1,0 +1,37 @@
+{
+  "provider": "kimi",
+  "timestamp": "2026-02-16T08:20:00+08:00",
+  "source": "dashboard_screenshot",
+  "user_corrections": {
+    "initial_balance_actual": 25.00,
+    "initial_balance_reported": 21.00,
+    "correction_note": "Initial balance was $25, not $21. $21 was likely the most recent recharge added to existing balance",
+    "recent_usage_12h": 10.00,
+    "tracking_start": "approximately_12h_ago"
+  },
+  "credits": {
+    "balance": 12.03560,
+    "currency": "USD",
+    "month_used": 4.93474,
+    "total_consumption": 13.96440,
+    "total_recharge": 21.00000,
+    "estimated_starting_balance": 25.00,
+    "hold": 0.00000
+  },
+  "usage": {
+    "current_period": {
+      "cost": 4.93474,
+      "period": "month_to_date"
+    },
+    "recent_12h": {
+      "estimated": 10.00,
+      "rate_per_hour": 0.83,
+      "burn_rate": "high"
+    }
+  },
+  "calculated": {
+    "days_remaining_at_recent_rate": 0.58,
+    "projected_daily_at_recent_rate": 20.00,
+    "alert": "HIGH_BURN_RATE"
+  }
+}

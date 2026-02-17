@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+venv*/
+.venv*/
+venv-*/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OpenClaw
+.openclaw/
+.clawhub/
+
+# Build outputs
+dist/
+build/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Optional package locks (use pnpm/yarn if needed)
+# package-lock.json
+
+# Temp files
+*.tmp
+*.temp

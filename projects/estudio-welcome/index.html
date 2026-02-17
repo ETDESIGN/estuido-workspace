@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESTUDIO - Retro 8-Bit Welcome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-cyan: #00ffff;
+            --neon-purple: #bf00ff;
+            --neon-green: #39ff14;
+            --neon-yellow: #ffff00;
+            --dark-bg: #0a0a0f;
+            --scanline-color: rgba(0, 255, 255, 0.03);
+        }
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background: var(--dark-bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background grid */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+            100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+        }
+
+        /* CRT Scanlines */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 1000;
+            animation: scanlineFlicker 0.1s infinite;
+        }
+
+        @keyframes scanlineFlicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.98; }
+        }
+
+        /* CRT Flicker effect */
+        .crt-flicker {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 255, 0, 0.01);
+            pointer-events: none;
+            z-index: 999;
+            animation: flicker 4s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 0.02; }
+            5% { opacity: 0.05; }
+            10% { opacity: 0.02; }
+            15% { opacity: 0.06; }
+            20% { opacity: 0.02; }
+            50% { opacity: 0.02; }
+            52% { opacity: 0.08; }
+            54% { opacity: 0.02; }
+            90% { opacity: 0.02; }
+            95% { opacity: 0.05; }
+        }
+
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 20px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* ESTUDIO Logo */
+        .logo-container {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            color: var(--neon-cyan);
+            text-shadow: 
+                0 0 10px var(--neon-cyan),
+                0 0 20px var(--neon-cyan),
+                0 0 40px var(--neon-cyan),
+                0 0 80px var(--neon-cyan);
+            letter-spacing: 0.2em;
+            animation: logoPulse 2s ease-in-out infinite, glitch 5s infinite;
+            position: relative;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 10px var(--neon-cyan),
+                    0 0 20px var(--neon-cyan),
+                    0 0 40px var(--neon-cyan),
+                    0 0 80px var(--neon-cyan);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 20px var(--neon-cyan),
+                    0 0 40px var(--neon-cyan),
+                    0 0 60px var(--neon-cyan),
+                    0 0 100px var(--neon-cyan);
+            }
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% { transform: translate(0); }
+            92% { transform: translate(-2px, 2px); }
+            94% { transform: translate(2px, -2px); }
+            96% { transform: translate(-2px, 0); }
+            98% { transform: translate(2px, 0); }
+        }
+
+        /* Pixel Art Character */
+        .character-container {
+            margin: 40px auto;
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+
+        .pixel-character {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            animation: characterFloat 2s ease-in-out infinite, characterGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        /* Building the 8-bit character using box-shadow */
+        .pixel-character::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: transparent;
+            box-shadow:
+                /* Row 1 - Helmet top */
+                30px 0 0 var(--neon-purple),
+                40px 0 0 var(--neon-purple),
+                50px 0 0 var(--neon-purple),
+                60px 0 0 var(--neon-purple),
+                70px 0 0 var(--neon-purple),
+                /* Row 2 - Helmet */
+                20px 10px 0 var(--neon-purple),
+                30px 10px 0 var(--neon-cyan),
+                40px 10px 0 var(--neon-cyan),
+                50px 10px 0 var(--neon-cyan),
+                60px 10px 0 var(--neon-cyan),
+                70px 10px 0 var(--neon-cyan),
+                80px 10px 0 var(--neon-purple),
+                /* Row 3 - Helmet/Visor */
+                10px 20px 0 var(--neon-purple),
+                20px 20px 0 var(--neon-cyan),
+                30px 20px 0 var(--neon-cyan),
+                40px 20px 0 var(--neon-yellow),
+                50px 20px 0 var(--neon-yellow),
+                60px 20px 0 var(--neon-yellow),
+                70px 20px 0 var(--neon-cyan),
+                80px 20px 0 var(--neon-cyan),
+                90px 20px 0 var(--neon-purple),
+                /* Row 4 - Visor */
+                10px 30px 0 var(--neon-purple),
+                20px 30px 0 var(--neon-yellow),
+                30px 30px 0 #000,
+                40px 30px 0 var(--neon-cyan),
+                50px 30px 0 var(--neon-cyan),
+                60px 30px 0 #000,
+                70px 30px 0 var(--neon-yellow),
+                80px 30px 0 var(--neon-purple),
+                /* Row 5 - Face/Body top */
+                10px 40px 0 var(--neon-purple),
+                20px 40px 0 var(--neon-pink),
+                30px 40px 0 var(--neon-pink),
+                40px 40px 0 var(--neon-pink),
+                50px 40px 0 var(--neon-pink),
+                60px 40px 0 var(--neon-pink),
+                70px 40px 0 var(--neon-pink),
+                80px 40px 0 var(--neon-purple),
+                /* Row 6 - Body */
+                20px 50px 0 var(--neon-cyan),
+                30px 50px 0 var(--neon-cyan),
+                40px 50px 0 var(--neon-cyan),
+                50px 50px 0 var(--neon-cyan),
+                60px 50px 0 var(--neon-cyan),
+                70px 50px 0 var(--neon-cyan),
+                /* Row 7 - Body detail */
+                20px 60px 0 var(--neon-cyan),
+                30px 60px 0 var(--neon-green),
+                40px 60px 0 var(--neon-cyan),
+                50px 60px 0 var(--neon-cyan),
+                60px 60px 0 var(--neon-green),
+                70px 60px 0 var(--neon-cyan),
+                /* Row 8 - Body bottom */
+                20px 70px 0 var(--neon-cyan),
+                30px 70px 0 var(--neon-cyan),
+                40px 70px 0 var(--neon-cyan),
+                50px 70px 0 var(--neon-cyan),
+                60px 70px 0 var(--neon-cyan),
+                70px 70px 0 var(--neon-cyan),
+                /* Row 9 - Legs */
+                20px 80px 0 var(--neon-purple),
+                30px 80px 0 var(--neon-purple),
+                50px 80px 0 var(--neon-purple),
+                60px 80px 0 var(--neon-purple),
+                /* Row 10 - Legs */
+                20px 90px 0 var(--neon-purple),
+                30px 90px 0 var(--neon-purple),
+                50px 90px 0 var(--neon-purple),
+                60px 90px 0 var(--neon-purple),
+                /* Row 11 - Feet */
+                10px 100px 0 var(--neon-pink),
+                20px 100px 0 var(--neon-pink),
+                30px 100px 0 var(--neon-pink),
+                50px 100px 0 var(--neon-pink),
+                60px 100px 0 var(--neon-pink),
+                70px 100px 0 var(--neon-pink);
+        }
+
+        @keyframes characterFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes characterGlow {
+            0% { filter: drop-shadow(0 0 5px var(--neon-cyan)); }
+            100% { filter: drop-shadow(0 0 20px var(--neon-cyan)) drop-shadow(0 0 40px var(--neon-purple)); }
+        }
+
+        /* Welcome Message */
+        .welcome-section {
+            margin: 30px 0;
+        }
+
+        .welcome-text {
+            font-size: clamp(0.7rem, 2.5vw, 1rem);
+            color: var(--neon-green);
+            line-height: 2;
+            text-shadow: 0 0 10px var(--neon-green);
+            margin-bottom: 20px;
+        }
+
+        .typing-text {
+            overflow: hidden;
+            border-right: 2px solid var(--neon-green);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+            max-width: fit-content;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--neon-green); }
+        }
+
+        .subtitle {
+            font-size: clamp(0.5rem, 2vw, 0.7rem);
+            color: var(--neon-pink);
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in 3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* CTA Button */
+        .cta-container {
+            margin-top: 50px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 40px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(0.6rem, 2vw, 0.8rem);
+            color: var(--dark-bg);
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            border: 4px solid var(--neon-cyan);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.5),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            animation: buttonPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.1); }
+            50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.8), 0 0 60px rgba(191, 0, 255, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.2); }
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 
+                0 0 40px rgba(0, 255, 255, 0.8),
+                0 0 80px rgba(191, 0, 255, 0.6);
+            border-color: var(--neon-pink);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Decorative elements */
+        .decorative-border {
+            position: fixed;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan), var(--neon-purple), var(--neon-green));
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+
+        .border-top { top: 0; }
+        .border-bottom { bottom: 0; }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Corner decorations */
+        .corner {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--neon-cyan);
+            z-index: 100;
+        }
+
+        .corner-tl { top: 20px; left: 20px; border-right: none; border-bottom: none; }
+        .corner-tr { top: 20px; right: 20px; border-left: none; border-bottom: none; }
+        .corner-bl { bottom: 20px; left: 20px; border-right: none; border-top: none; }
+        .corner-br { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .character-container {
+                transform: scale(0.8);
+            }
+            
+            .corner {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .typing-text {
+                white-space: normal;
+                border-right: none;
+                animation: none;
+                overflow: visible;
+            }
+        }
+
+        /* Loading bar */
+        .loading-bar {
+            width: 300px;
+            max-width: 80%;
+            height: 20px;
+            border: 3px solid var(--neon-cyan);
+            margin: 30px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            width: 0%;
+            animation: loadProgress 4s ease-out 1s forwards;
+            box-shadow: 0 0 20px var(--neon-cyan);
+        }
+
+        @keyframes loadProgress {
+            to { width: 100%; }
+        }
+
+        .loading-text {
+            font-size: 0.6rem;
+            color: var(--neon-cyan);
+            margin-top: 10px;
+            animation: loadingBlink 1s ease-in-out infinite;
+        }
+
+        @keyframes loadingBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Stars background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Visual Effects -->
+    <div class="bg-grid"></div>
+    <div class="scanlines"></div>
+    <div class="crt-flicker"></div>
+    <div class="stars" id="stars"></div>
+    
+    <!-- Borders and Corners -->
+    <div class="decorative-border border-top"></div>
+    <div class="decorative-border border-bottom"></div>
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <h1 class="logo">◄ ESTUDIO ►</h1>
+        </div>
+
+        <!-- 8-Bit Character -->
+        <div class="character-container">
+            <div class="pixel-character"></div>
+        </div>
+
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <p class="welcome-text typing-text">WELCOME, PLAYER 1</p>
+            <p class="subtitle">INSERT COIN TO BEGIN YOUR CREATIVE JOURNEY</p>
+        </div>
+
+        <!-- Loading Bar -->
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+        <p class="loading-text">LOADING AWESOMENESS...</p>
+
+        <!-- CTA Button -->
+        <div class="cta-container">
+            <a href="#start" class="cta-button" onclick="startGame(event)">
+                ▶ START GAME
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Generate random stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 100;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.opacity = Math.random();
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Initialize stars on load
+        createStars();
+
+        // Button click handler with retro sound effect simulation
+        function startGame(event) {
+            event.preventDefault();
+            
+            // Visual feedback
+            const button = event.target;
+            button.style.transform = 'scale(0.95)';
+            button.textContent = '◉ LOADING...';
+            
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+                button.textContent = '▶ INSERT ANOTHER COIN';
+                
+                // Flash effect
+                document.body.style.background = 'var(--neon-cyan)';
+                setTimeout(() => {
+                    document.body.style.background = 'var(--dark-bg)';
+                }, 100);
+            }, 200);
+        }
+
+        // Add keyboard interaction
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space' || e.code === 'Enter') {
+                const button = document.querySelector('.cta-button');
+                button.click();
+            }
+        });
+
+        // Random glitch effect on logo
+        setInterval(() => {
+            const logo = document.querySelector('.logo');
+            if (Math.random() > 0.95) {
+                logo.style.textShadow = `
+                    ${Math.random() * 10 - 5}px ${Math.random() * 10 - 5}px 0 var(--neon-pink),
+                    ${Math.random() * 10 - 5}px ${Math.random() * 10 - 5}px 0 var(--neon-green)
+                `;
+                setTimeout(() => {
+                    logo.style.textShadow = '';
+                }, 100);
+            }
+        }, 100);
+
+        // Console easter egg
+        console.log('%c◄ ESTUDIO ►', 'color: #00ffff; font-size: 24px; font-family: monospace; text-shadow: 2px 2px #ff00ff;');
+        console.log('%cWELCOME TO THE GAME', 'color: #39ff14; font-size: 14px; font-family: monospace;');
+        console.log('%c> PRESS START TO BEGIN', 'color: #ff00ff; font-size: 12px; font-family: monospace;');
+    </script>
+</body>
+</html>

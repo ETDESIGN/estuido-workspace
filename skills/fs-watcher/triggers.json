@@ -1,0 +1,26 @@
+{
+  "triggers": [
+    {
+      "path": "/home/e/uploads",
+      "event": "add",
+      "pattern": "*.{jpg,jpeg,png}",
+      "agent": "cto",
+      "task": "Process uploaded image:",
+      "notify": true
+    },
+    {
+      "path": "/home/e/.openclaw/config",
+      "event": "change",
+      "pattern": "*.json",
+      "run": "openclaw gateway restart",
+      "notify": true
+    },
+    {
+      "path": "/home/e/projects",
+      "event": "add",
+      "pattern": "*.md",
+      "agent": "qa",
+      "task": "Review new documentation:"
+    }
+  ]
+}

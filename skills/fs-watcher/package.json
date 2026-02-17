@@ -1,0 +1,13 @@
+{
+  "name": "fs-watcher",
+  "version": "1.0.0",
+  "description": "Monitor filesystem and trigger actions",
+  "main": "fs-watcher.js",
+  "scripts": {
+    "start": "node fs-watcher.js",
+    "watch": "node fs-watcher.js"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0"
+  }
+}

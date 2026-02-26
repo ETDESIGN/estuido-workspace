@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@kilocode/cli": "^1.0.21",
+    "clawhub": "^0.6.1",
+    "notebooklm": "^0.1.1"
+  }
+}

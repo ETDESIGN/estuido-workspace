@@ -14,11 +14,19 @@
 
 **Impact:** Search backup working, no more rate limit errors
 
+### 2. Fix Dashboard React Mount Issue
+**Why:** Frontend crashes on load (white screen)
+**When:** This week
+**Check:** http://localhost:5173
+**Issue:** React fails to mount - needs browser console error analysis
+
+**Status:** CTO completed 5/6 features, this bug blocks full deployment
+
 ---
 
 ## 🟡 Medium Priority
 
-### 2. Set Up Google Integration (via gog skill)
+### 3. Set Up Google Integration (via gog skill)
 **Account:** caneles2hk@gmail.com  
 **When:** This week  
 **Method:** gog skill (NO Google Workspace needed - FREE!)  
@@ -42,47 +50,57 @@
 
 **After setup:** Dereck configures OpenClaw to use gog skill for automations
 
-### 3. Review CTO Agent Dashboard Work
-**When:** After sidebar completion (ETA: 30 mins)
-**Check:** http://localhost:5173
-**Features to verify:**
-- [ ] Theme toggle (light/dark)
-- [ ] Auto-refresh (30s)
-- [ ] CSV export
-- [ ] Date filter
-- [ ] Trend indicators
-- [ ] Sidebar navigation
+### 4. Model Fallback Strategy Implementation
+**Why:** When API errors or rate limits hit, system should auto-recover
+**When:** This week
+**Task:** TASK-fallback-strategy (NOT_STARTED)
+**Assigned to:** CTO Agent
+
+**Approach:**
+- Detect API errors → switch to free model
+- Groq rate limits → use MiniMax or GLM-5
+- OpenRouter issues → fallback to KiloCode CLI
 
 ---
 
 ## 🟢 Low Priority
 
-### 4. Optional: E2B Code Sandbox
+### 5. Optional: E2B Code Sandbox
 **Why:** Safe code execution for dev agents
 **URL:** https://e2b.dev
 **Cost:** Free tier available
 
-### 5. Optional: Langfuse Monitoring
+### 6. Optional: Langfuse Monitoring
 **Why:** Track token usage/costs over time
 **URL:** https://langfuse.com
 **Cost:** Free tier (50K events/month)
 
+### 7. Config-Based Agent Spawning
+**Why:** Enable Dereck to spawn unlimited agents via OpenClaw config
+**Status:** BLOCKED - OpenClaw 2026.2.x doesn't support `tools.sessions_spawn` config keys
+**Research:** Alternative approaches - skill-based agents, runtime permissions, or wait for OpenClaw update
+**Current Workaround:** Option C (Simulation mode) - SOUL files + direct execution
+
 ---
 
-## 📊 Current Status
+## 📊 Current Status (Updated: 2026-02-20)
 
 | System | Status |
 |--------|--------|
-| Dashboard | 🟢 Running (5/6 features complete) |
+| QMD Search | 🟢 Working (158 files, embeddings ready) |
+| Cost Monitor | 🟢 Running ($0.41/day, $5 threshold) |
+| CTO Agent | 🟢 Active (KiloCode free models) |
+| QA Agent | 🟢 Ready (MiniMax) |
+| Dashboard | 🟡 5/6 features, React mount bug |
 | Brave Search | 🔴 Rate limited |
-| Tavily | 🟡 Ready (needs key) |
-| Image Gen | 🟢 Working (Pollinations) |
-| Service Tracker | 🟢 Live on dashboard |
-| CTO Agent | 🟡 Working on sidebar |
+| Tavily | 🟡 Ready (needs key activation) |
+| WhatsApp | ⚠️ Flapping (auto-reconnects) |
 
-**Next action:** Complete item #1 (Tavily activation)
+**System Constraints:**
+- RAM: 5GB total, ~2.2GB available
+- Daily budget: $5.00 (current: $0.41)
 
 ---
 
-_Last updated: 2026-02-16 08:15_  
-_Next review: End of day_
+_Last updated: 2026-02-20 18:30_  
+_Next review: End of week_

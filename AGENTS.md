@@ -226,7 +226,7 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 #### 🛠️ CTO (Lead Dev)
 - **Reports to:** Dereck (GM)
 - **Scope:** Feature dev, bug fixes, code quality
-- **Tools:** KiloCode CLI with free models (GLM, MiniMax, Llama)
+- **Tools:** KiloCode CLI with free models (MiniMax, Llama)
 - **Does NOT do:** Architecture decisions (escalates to GM)
 - **Config:** `agents/cto.json`
 - **Persona:** `agents/CTO.md`
@@ -309,7 +309,7 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 
 | Agent | Model | Cost/M Token | Use For |
 |-------|-------|--------------|---------|
-| **CTO** | KiloCode (GLM-5:free) | $0 | All coding work |
+| **CTO** | KiloCode (MiniMax:free) | $0 | All coding work |
 | **CTO** | KiloCode (MiniMax:free) | $0 | Fallback coding |
 | **QA** | MiniMax-01 | ~$2.25 | Code review, testing |
 | **GM** | Gemini 2.0 Flash | ~$0.25 | Routine decisions |
@@ -350,6 +350,64 @@ sessions_spawn(agentId: "cto", task: "...")
 # When CTO marks READY_FOR_QA, spawn QA
 sessions_spawn(agentId: "qa", task: "...")
 ```
+
+---
+
+## 🛠️ Agent Tool Access & Requests
+
+**You can request additional tools if your task requires them.**
+
+### Standard Toolkits by Role
+
+| Role | Standard Tools | Auto-Approved |
+|------|---------------|---------------|
+| **CTO** | read, write, edit, exec, sessions_list, process, browser | ✅ Yes |
+| **QA** | read, browser, sessions_list | ✅ Yes |
+| **HR/COO** | read, sessions_list, cron, exec | ✅ Yes |
+| **GM** | All tools | ✅ Yes |
+
+### How to Request Additional Tools
+
+**If you get "tool not in request.tools" error:**
+
+1. **Create a tool request file:**
+   ```bash
+   cp requests/TEMPLATE-TOOL-REQUEST.md requests/TOOL-REQUEST-[your-task].md
+   ```
+
+2. **Fill in the template:**
+   - What tools you need
+   - Why you need them
+   - What task you're working on
+
+3. **Wait for approval:**
+   - Standard tools: Instant (auto-approved)
+   - Special tools: <1 hour (GM review)
+   - Policy overrides: <4 hours (E approval)
+
+4. **Check for response:**
+   - `requests/TOOL-REQUEST-XXX-DIAGNOSIS.md` (HR review)
+   - `requests/TOOL-REQUEST-XXX-APPROVED.md` (GM approval)
+
+### When to Request
+
+✅ **Request immediately when:**
+- Task explicitly requires tool not in your kit
+- You're blocked and can't proceed
+- Error says "tool not in request.tools"
+
+❌ **Don't request for:**
+- Tools already in your standard kit
+- Tasks outside your role (escalate instead)
+- Convenience (should justify with business need)
+
+### Escalation Path
+
+**Urgent?** Tag GM directly in your task channel  
+**Policy question?** Escalate to E  
+**Technical issue?** Document and continue with available tools
+
+**Full documentation:** `docs/AGENT_RESOURCE_REQUEST_PIPELINE.md`
 
 ---
 

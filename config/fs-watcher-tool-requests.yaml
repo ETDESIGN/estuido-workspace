@@ -1,0 +1,23 @@
+# FS-Watcher Config: Tool Request Pipeline
+
+# Watch for new tool requests → Trigger HR diagnosis
+- path: /home/e/.openclaw/workspace/requests
+  event: add
+  pattern: "TOOL-REQUEST-*.md"
+  exclude: "*-DIAGNOSIS.md,*-APPROVED.md,*-DENIED.md"
+  action: send
+  message: "New tool request detected. HR (Warren) please diagnose: {filename}"
+
+# Watch for HR diagnosis → Trigger GM approval if needed
+- path: /home/e/.openclaw/workspace/requests
+  event: add
+  pattern: "TOOL-REQUEST-*-DIAGNOSIS.md"
+  action: send
+  message: "HR diagnosis complete. GM (Dereck) please review for approval: {filename}"
+
+# Watch for approvals → Confirm provisioning
+- path: /home/e/.openclaw/workspace/requests
+  event: add
+  pattern: "TOOL-REQUEST-*-APPROVED.md"
+  action: send
+  message: "Tool request APPROVED. Agent can proceed with granted tools."

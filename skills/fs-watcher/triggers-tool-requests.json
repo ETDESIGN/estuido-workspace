@@ -1,0 +1,26 @@
+{
+  "triggers": [
+    {
+      "path": "/home/e/.openclaw/workspace/requests",
+      "event": "add",
+      "pattern": "TOOL-REQUEST-*.md",
+      "exclude": "*-DIAGNOSIS.md,*-APPROVED.md,*-DENIED.md",
+      "action": "notify",
+      "message": "🔧 New tool request detected. HR (Warren/COO) please diagnose: {filename}"
+    },
+    {
+      "path": "/home/e/.openclaw/workspace/requests",
+      "event": "add",
+      "pattern": "TOOL-REQUEST-*-DIAGNOSIS.md",
+      "action": "notify",
+      "message": "📋 HR diagnosis complete. GM (Dereck) please review for approval: {filename}"
+    },
+    {
+      "path": "/home/e/.openclaw/workspace/requests",
+      "event": "add",
+      "pattern": "TOOL-REQUEST-*-APPROVED.md",
+      "action": "notify",
+      "message": "✅ Tool request APPROVED. Agent can proceed with granted tools."
+    }
+  ]
+}

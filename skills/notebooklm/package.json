@@ -1,0 +1,9 @@
+{
+  "name": "notebooklm",
+  "version": "1.0.0",
+  "description": "Google NotebookLM integration for research and audio summaries",
+  "main": "index.js",
+  "dependencies": {
+    "notebooklm": "^0.1.1"
+  }
+}

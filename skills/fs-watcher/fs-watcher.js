@@ -33,7 +33,8 @@ class FSWatcher {
     }
     
     const content = fs.readFileSync(configPath, 'utf-8');
-    this.triggers = JSON.parse(content);
+    const data = JSON.parse(content);
+    this.triggers = data.triggers || data;
     console.log(`Loaded ${this.triggers.length} trigger(s)`);
   }
 
@@ -180,14 +181,22 @@ Examples:
         this.runCommand(run, filePath);
       }
 
-      // Spawn agent (via sessions_spawn in OpenClaw context)
+      // Notify via Discord (fs-watcher can't spawn directly)
       if (agent && task) {
-        this.spawnAgent(agent, task, filePath);
+        console.log(`🤖 Would spawn agent: ${agent}`);
+        console.log(`   Task: ${task} ${filePath}`);
+        // Discord notify instead
+        this.notify(filePath);
+      } else {
+        console.log(`No agent/task configured`);
       }
 
       // Notify (via message tool)
       if (notify) {
+        console.log(`📢 Calling sendNotification...`);
         this.sendNotification(eventType, filePath);
+      } else {
+        console.log(`Notify flag is: ${notify}`);
       }
     };
 
@@ -231,20 +240,86 @@ Examples:
   }
 
   /**
-   * Spawn agent (placeholder - would use sessions_spawn in OpenClaw)
+   * Notify via Discord - send message to channel
    */
-  spawnAgent(agentId, task, filePath) {
-    const fullTask = `${task} ${filePath}`;
-    console.log(`Would spawn agent: ${agentId} with task: ${fullTask}`);
-    // In OpenClaw, this would call sessions_spawn({ agentId, task: fullTask })
+  notify(filePath, trigger) {
+    const channelMap = {
+      '20_GROWTH': '1473477201599926273',  // Growth
+      '10_ENGINEERING': '1473477068892410091', // Engineering
+      '30_STRATEGY': '1473477201599926273' // Strategy (use Growth for now)
+    };
+    
+    let channelId = null;
+    for (const [dir, ch] of Object.entries(channelMap)) {
+      if (filePath.includes(dir)) {
+        channelId = ch;
+        break;
+      }
+    }
+    
+    if (!channelId) {
+      console.log(`No channel mapping for: ${filePath}`);
+      return;
+    }
+    
+    const fileName = filePath.split('/').pop();
+    const msg = `📄 New file detected: ${fileName}`;
+    
+    const { exec } = require('child_process');
+    const cmd = `openclaw message send --channel discord --target ${channelId} --message "${msg}"`;
+    
+    exec(cmd, (err, stdout, stderr) => {
+      if (err) {
+        console.error(`❌ Notify failed: ${err.message}`);
+        return;
+      }
+      console.log(`✅ Notified channel ${channelId}: ${msg}`);
+    });
   }
 
   /**
-   * Send notification
+   * Send notification to Discord
    */
   sendNotification(event, filePath) {
-    console.log(`Would send notification: ${event} on ${filePath}`);
-    // In OpenClaw, this would call message tool
+    console.log(`📢 sendNotification called with event=${event}, filePath=${filePath}`);
+    
+    const channelMap = {
+      '20_GROWTH': '1473477201599926273',  // Growth
+      '10_ENGINEERING': '1473477068892410091', // Engineering
+      '30_STRATEGY': '1473477201599926273' // Strategy
+    };
+    
+    let channelId = null;
+    for (const [dir, ch] of Object.entries(channelMap)) {
+      if (filePath.includes(dir)) {
+        channelId = ch;
+        break;
+      }
+    }
+    
+    console.log(`📢 Channel lookup: filePath=${filePath}, channelId=${channelId}`);
+    
+    if (!channelId) {
+      console.log(`No channel mapping for: ${filePath}`);
+      return;
+    }
+    
+    const fileName = filePath.split('/').pop();
+    const msg = `📄 New file detected: ${fileName}`;
+    
+    const { exec } = require('child_process');
+    const cmd = `openclaw message send --channel discord --target ${channelId} --message "${msg}"`;
+    console.log(`📢 Running: ${cmd}`);
+    
+    exec(cmd, (err, stdout, stderr) => {
+      if (err) {
+        console.error(`❌ Notify failed: ${err.message}`);
+        console.error(`   stderr: ${stderr}`);
+        return;
+      }
+      console.log(`✅ Notified channel ${channelId}: ${msg}`);
+      if (stdout) console.log(`   stdout: ${stdout.trim()}`);
+    });
   }
 
   /**

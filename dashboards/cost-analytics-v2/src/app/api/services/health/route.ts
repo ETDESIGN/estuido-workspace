@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server'
+import fs from 'fs'
+import path from 'path'
 
 interface ServiceStatus {
   name: string
@@ -74,8 +76,34 @@ const services: ServiceStatus[] = [
     tier: 'free',
     status: 'healthy',
     lastChecked: new Date().toISOString()
+  },
+  // NB Studio Services
+  {
+    name: 'NB Studio Gateway',
+    provider: 'openclaw',
+    tier: 'free',
+    status: 'healthy',
+    lastChecked: new Date().toISOString()
+  },
+  {
+    name: 'NB Studio fs-watcher',
+    provider: 'nb-studio',
+    tier: 'free',
+    status: 'healthy',
+    lastChecked: new Date().toISOString()
   }
 ]
+
+// Try to read NB Studio dashboard data
+let nbStudioData = null
+try {
+  const dashboardPath = '/home/e/nb-studio/00_MISSION_CONTROL/DASHBOARD.md'
+  if (fs.existsSync(dashboardPath)) {
+    nbStudioData = fs.readFileSync(dashboardPath, 'utf-8')
+  }
+} catch (e) {
+  // Ignore errors
+}
 
 export async function GET() {
   return NextResponse.json({
@@ -89,6 +117,10 @@ export async function GET() {
       budget: 50,
       budgetUsed: 49.6
     },
+    nbStudio: nbStudioData ? {
+      hasData: true,
+      preview: nbStudioData.substring(0, 500)
+    } : null,
     lastUpdated: new Date().toISOString()
   })
 }

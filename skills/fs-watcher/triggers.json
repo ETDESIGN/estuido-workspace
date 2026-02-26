@@ -21,6 +21,14 @@
       "pattern": "*.md",
       "agent": "qa",
       "task": "Review new documentation:"
+    },
+    {
+      "path": "/home/e/nb-studio/20_GROWTH/CONTENT_DRAFTS",
+      "event": "add",
+      "pattern": "*.md",
+      "agent": "growth",
+      "task": "Generate Twitter thread from content draft:",
+      "notify": true
     }
   ]
 }

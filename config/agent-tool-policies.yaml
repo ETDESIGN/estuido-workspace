@@ -1,0 +1,130 @@
+# Agent Tool Policies
+# Defines standard tool access by role
+
+roles:
+  cto:
+    name: "Lead Developer"
+    description: "Builds features, manages technical architecture"
+    standard_tools:
+      - read
+      - write
+      - edit
+      - exec
+      - sessions_list
+      - sessions_spawn
+      - process
+      - browser
+    auto_approve: true
+    token_budget: 5000
+    time_limit: "4h"
+    escalation_required:
+      - gateway_config
+      - production_deploy
+      - security_changes
+    
+  qa:
+    name: "Quality Assurance"
+    description: "Reviews code, tests features, validates quality"
+    standard_tools:
+      - read
+      - browser
+      - sessions_list
+    auto_approve: true
+    token_budget: 2000
+    time_limit: "2h"
+    escalation_required:
+      - write
+      - edit
+      - exec
+      - any_code_changes
+    
+  hr_coo:
+    name: "Operations Manager"
+    description: "Monitors tasks, allocates resources, optimizes workflows"
+    standard_tools:
+      - read
+      - sessions_list
+      - cron
+      - exec
+    auto_approve: true
+    token_budget: 3000
+    time_limit: "ongoing"
+    escalation_required:
+      - gateway_config
+      - agent_permission_changes
+      
+  gm:
+    name: "General Manager"
+    description: "Strategic decisions, architecture approval, escalations"
+    standard_tools:
+      - all_tools
+    auto_approve: true
+    token_budget: unlimited
+    time_limit: unlimited
+    escalation_required:
+      - policy_changes
+      - budget_overrides
+      - new_agent_creation
+
+# Tool definitions
+tools:
+  read:
+    description: "Read files and directories"
+    risk: low
+    auto_approve_for: [cto, qa, hr_coo, gm]
+    
+  write:
+    description: "Create new files"
+    risk: low
+    auto_approve_for: [cto, gm]
+    
+  edit:
+    description: "Modify existing files"
+    risk: medium
+    auto_approve_for: [cto, gm]
+    
+  exec:
+    description: "Execute shell commands"
+    risk: medium
+    auto_approve_for: [cto, hr_coo, gm]
+    
+  sessions_list:
+    description: "Query OpenClaw sessions"
+    risk: low
+    auto_approve_for: [cto, qa, hr_coo, gm]
+    
+  sessions_spawn:
+    description: "Spawn sub-agents"
+    risk: high
+    auto_approve_for: [cto, gm]
+    requires: token_budget_approval
+    
+  process:
+    description: "Manage processes (kill, monitor)"
+    risk: high
+    auto_approve_for: [cto, gm]
+    
+  browser:
+    description: "Web automation and testing"
+    risk: medium
+    auto_approve_for: [cto, qa, gm]
+    
+  gateway:
+    description: "OpenClaw gateway configuration"
+    risk: critical
+    auto_approve_for: [gm]
+    requires: e_approval
+
+# Request SLA targets
+sla:
+  auto_approve: "instant"
+  standard_request: "1 hour"
+  special_request: "4 hours"
+  policy_override: "1 day"
+  
+# Audit settings
+audit:
+  log_all_requests: true
+  log_approvals: true
+  weekly_report: true
+  retention_days: 90

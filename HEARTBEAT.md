@@ -11,6 +11,7 @@
 - [ ] CTO dashboard upgrade - COMPLETED
 - [ ] fs-watcher automation - RUNNING
 - [ ] Any spawned subagents - check progress
+- [ ] Remind E about GitHub remote setup (8 PM tonight)
 
 ## Heartbeat Actions (Zero-RAM System Ops - v2.0)
 

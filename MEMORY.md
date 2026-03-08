@@ -79,12 +79,25 @@ workspace/
 ### Active Systems
 | System | Status | Location |
 |--------|--------|----------|
+| Mission Control (builderz) | Running ✅ | localhost:4001 (primary) |
+| Mission Control (old) | Discontinued | Was localhost:4000 |
+| Command Center | Discontinued | Was localhost:3333 |
 | Dashboard v2 | Local dev | localhost:3000 + :3002 |
 | Backend API | Running | Express on :3002 |
 | Tool Pipeline | Active | FS-watcher monitoring |
 | Cost Monitor | Active | Cron every hour |
 | QMD Search | Active | ~/.cache/qmd/index.sqlite |
 | WhatsApp Gateway | Flapping | Auto-reconnects |
+
+### Active Project Ideas
+| Date | Idea | Status |
+|------|------|--------|
+| 2026-03-03 | Reverse Beautify App - unbeautify photos, detect modifications, recreate originals | New |
+
+### Discontinued
+| System | Status | Notes |
+|--------|--------|-------|
+| NB Studio | DISCONTINUED | March 2, 2026 - see Mission Control/Command Center |
 
 ### System Constraints (Important!)
 | Resource | Limit | Implication |

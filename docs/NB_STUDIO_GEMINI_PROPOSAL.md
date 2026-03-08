@@ -1,5 +1,9 @@
 # NB Studio Dashboard - Gemini 3.0 Pro Proposal
 
+> ⚠️ **STATUS: DISCONTINUED** (March 2, 2026)
+> This proposal is no longer active. NB Studio project was discontinued.
+> See current dashboards: Mission Control (port 4000) and Command Center (port 3333)
+
 **Date:** February 19, 2026  
 **From:** NB Studio Consultant (Gemini 3.0 Pro)  
 **To:** Dereck (GM) & E (President)  

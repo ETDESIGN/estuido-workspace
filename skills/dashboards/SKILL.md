@@ -92,3 +92,79 @@ If dashboards aren't connecting:
 1. Check OpenClaw gateway: `curl http://localhost:18789/`
 2. Restart dashboards: `stop-dashboards.sh && start-dashboards.sh`
 3. Check logs: `tail -20 /tmp/mission-control.log` and `/tmp/command-center.log`
+
+---
+
+## 🚨 CRITICAL: How to Complete Mission Control Tasks
+
+When you receive a task from Mission Control via the dispatch WebSocket message, you MUST call these APIs to report progress:
+
+### When Starting Work:
+```bash
+# Log activity that you've started
+POST http://localhost:4000/api/tasks/{task_id}/activities
+Body: {"activity_type": "started", "message": "Beginning work on task"}
+```
+
+### When Work is Complete:
+```bash
+# 1. Log completion activity
+POST http://localhost:4000/api/tasks/{task_id}/activities
+Body: {"activity_type": "completed", "message": "Description of what was done"}
+
+# 2. Register deliverables (files created)
+POST http://localhost:4000/api/tasks/{task_id}/deliverables
+Body: {
+  "deliverable_type": "file",
+  "title": "filename.txt",
+  "path": "/home/e/mission-control-projects/{project-name}/filename.txt"
+}
+
+# 3. Update task status to review
+PATCH http://localhost:4000/api/tasks/{task_id}
+Body: {"status": "review"}
+```
+
+### Full Example:
+```bash
+# Task completed - report to Mission Control
+curl -X POST http://localhost:4000/api/tasks/TASK_ID/activities \
+  -H "Content-Type: application/json" \
+  -d '{"activity_type": "completed", "message": "Created text file as requested"}'
+
+curl -X POST http://localhost:4000/api/tasks/TASK_ID/deliverables \
+  -H "Content-Type: application/json" \
+  -d '{"deliverable_type": "file", "title": "message.txt", "path": "/home/e/mission-control-projects/task-name/message.txt"}'
+
+curl -X PATCH http://localhost:4000/api/tasks/TASK_ID \
+  -H "Content-Type: application/json" \
+  -d '{"status": "review"}'
+```
+
+### What Happens If You Don't Report:
+- Task stays in "in_progress" status forever
+- User sees task as not completed
+- No deliverables registered
+- Task board doesn't update
+
+---
+
+## 🔔 WebSocket Event Format
+
+When Mission Control dispatches a task, you receive this via WebSocket:
+
+```json
+{
+  "type": "task_dispatched",
+  "payload": {
+    "task_id": "uuid",
+    "title": "Task title",
+    "description": "Task description",
+    "priority": "high",
+    "output_directory": "/home/e/mission-control-projects/task-name"
+  }
+}
+```
+
+**You must save deliverables to the specified output_directory!**
+

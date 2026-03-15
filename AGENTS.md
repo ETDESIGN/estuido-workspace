@@ -45,6 +45,40 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - When you make a mistake → document it so future-you doesn't repeat it
 - **Text > Brain** 📝
 
+### 🔄 Checkpoint Long Tasks
+
+For tasks taking >15 minutes, add checkpoints to TASK.md:
+```markdown
+## Progress
+- [x] Step 1 complete
+- [x] Step 2 complete  
+- [ ] Step 3 in progress
+Checkpoint: Just finished X, about to do Y
+```
+This enables auto-resume if the agent times out.
+
+## Self-Improvement
+
+Log learnings, errors, and feature requests to `.learnings/` for continuous improvement:
+
+- **Learnings:** Corrections, knowledge gaps, best practices → `.learnings/LEARNINGS.md`
+- **Errors:** Command failures, exceptions → `.learnings/ERRORS.md`
+- **Feature Requests:** Missing capabilities → `.learnings/FEATURE_REQUESTS.md`
+
+When to log:
+- User corrects you ("No, that's wrong..." / "Actually...")
+- Command/operation fails unexpectedly
+- User requests a capability that doesn't exist
+- You discover a better approach for a recurring task
+- Knowledge was outdated or incorrect
+
+Promote broadly applicable learnings to:
+- `SOUL.md` — behavioral patterns
+- `TOOLS.md` — tool gotchas
+- `AGENTS.md` — workflow improvements
+
+See `skills/self-improving-agent/SKILL.md` for full format.
+
 ## Safety
 
 - Don't exfiltrate private data. Ever.
@@ -323,6 +357,18 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 ---
 
 ## 🚀 How to Spawn Agents
+
+### CTO (Use Groq Model)
+
+**IMPORTANT:** Always pass `model: "groq/llama-3.3-70b-versatile"` when spawning CTO. The default subagent model is MiniMax which is slow and causes timeouts.
+
+```bash
+sessions_spawn(
+  agentId: "cto",
+  model: "groq/llama-3.3-70b-versatile",  # Required! Don't omit
+  task: "..."
+)
+```
 
 ### CTO:
 ```bash

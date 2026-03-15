@@ -93,6 +93,7 @@ workspace/
 | Date | Idea | Status |
 |------|------|--------|
 | 2026-03-03 | Reverse Beautify App - unbeautify photos, detect modifications, recreate originals | New |
+| 2026-03-12 | Model Config: Kimi-OR primary, MiniMax fallback | E moving away from moonshotai direct |
 
 ### Discontinued
 | System | Status | Notes |

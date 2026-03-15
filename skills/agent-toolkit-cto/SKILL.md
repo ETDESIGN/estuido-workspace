@@ -55,6 +55,39 @@ sessions_spawn({
 
 ---
 
+## Model Fallback Strategy
+
+The CTO agent uses a **zero-cost fallback chain** for maximum reliability:
+
+| Priority | Model | Provider | Status |
+|----------|-------|----------|--------|
+| 1 | MiniMax | OpenRouter | Primary (FREE) |
+| 2 | Llama 3.3 70B | Groq | Fallback (FREE) |
+| 3 | GLM-5 | KiloCode | Alternative (FREE) |
+
+### How Fallback Works
+
+1. **Primary attempt:** MiniMax via OpenRouter
+2. **If 5xx/timeout/rate-limit:** Automatic retry with Llama via Groq
+3. **If Llama fails:** Retry with GLM-5 via KiloCode CLI
+4. **If all fail:** Escalate to GM
+
+All fallbacks are logged to console for monitoring. No manual intervention required.
+
+### Configuration
+
+```json
+{
+  "model": "openrouter/minimax/minimax-01",
+  "fallbackModels": [
+    "openrouter/groq/llama-3.3-70b-versatile",
+    "kilo/z-ai/glm-5:free"
+  ]
+}
+```
+
+---
+
 **Pre-approved by:** GM  
 **HR tracking:** Enabled  
 **Audit level:** Full

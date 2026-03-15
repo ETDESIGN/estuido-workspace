@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Model fallback chain configuration for OpenClaw",
   "lastUpdated": "2026-02-17",
-  
   "fallbackChain": [
     {
       "id": "primary",
@@ -27,17 +26,7 @@
       "notes": "Native tool support per MiniMax docs. Listed in OpenRouter tool-calling collection."
     },
     {
-      "id": "free_backup_1",
-      "model": "groq/llama-3.3-70b-versatile",
-      "provider": "groq",
-      "reason": "free_backup",
-      "description": "Groq free tier - fast inference",
-      "costPerMTokens": 0.0,
-      "toolSupport": "confirmed",
-      "maxRetries": 2
-    },
-    {
-      "id": "free_backup_2", 
+      "id": "free_backup_2",
       "model": "kilo/minimax/minimax-m2.5:free",
       "provider": "kilocode",
       "reason": "free_backup",
@@ -58,7 +47,6 @@
       "notes": "Supports tools but poor tool usage patterns. Verbose output."
     }
   ],
-
   "fallbackTriggers": [
     {
       "code": 404,
@@ -109,7 +97,6 @@
       "description": "Token limit hit - truncate context"
     }
   ],
-
   "healthCheck": {
     "enabled": true,
     "intervalMinutes": 30,
@@ -121,10 +108,13 @@
       "command": "echo 'health_check'"
     }
   },
-
   "userPreferences": {
     "defaultMode": "auto",
-    "allowedModes": ["strict", "auto", "manual"],
+    "allowedModes": [
+      "strict",
+      "auto",
+      "manual"
+    ],
     "strictMode": {
       "description": "Fail immediately on any error",
       "fallback": false
@@ -142,14 +132,12 @@
     "excludedModels": [],
     "preferredOrder": null
   },
-
   "conversation": {
     "preserveContext": true,
     "preserveSystemPrompt": true,
     "notifyOnSwitch": true,
     "notificationTemplate": "⚠️  Switched to {model} ({reason})"
   },
-
   "logging": {
     "logSwitches": true,
     "logHealthChecks": true,

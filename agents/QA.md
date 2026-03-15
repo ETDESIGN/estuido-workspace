@@ -181,5 +181,12 @@ Escalate to GM immediately if:
 
 ---
 
-_Last updated: 2026-02-16_  
+## Tools Access
+- **Available Skills:**
+  - `skill-vetter` - Security vet before installing new skills
+  - `summarize` - URL/file summarization (free Groq models)
+  - `self-improving-agent` - Learning capture (mem0 + MEMORY.md)
+  - `proactive-agent-lite` - Proactive behavior (12:00/18:00 cron only)
+
+_Last updated: 2026-03-12_  
 _Author: Dereck (GM)_

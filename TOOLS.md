@@ -37,6 +37,28 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 ---
 
+## Mem0 (Cloud Memory)
+
+**Status:** ✅ Working (2026-03-11)
+**Key:** m0-GouLJkFH7qy7Z5TDpZdcMPpCjWObCYCuHOZI26Qi
+**Auth:** `Token <key>` (header format)
+**Usage:** Semantic memory search + cross-session continuity
+
+---
+
+## Default Models (Updated 2026-03-12)
+
+| Model | Provider | Status | Use |
+|-------|----------|--------|-----|
+| **Kimi-OR** | OpenRouter | PRIMARY | `openrouter/moonshotai/kimi-k2.5` |
+| **MiniMax** | OpenRouter | FALLBACK | `openrouter/minimax/minimax-m2.5` |
+| Groq-Llama | Groq | FREE | Free tier |
+| Qwen 8B | OpenRouter | FREE | Free tier |
+
+**Note:** E moving away from moonshotai direct key. Config updated to use OpenRouter for both.
+
+---
+
 ## QMD (Local Search)
 
 **Status:** Working (v1.1.1) ✅ FIXED 2026-03-08
@@ -79,12 +101,21 @@ qmd index ~/.cache/qmd/estudio/ --pattern "**/*.md"  # Re-index
 
 ## Mission Control (builderz-labs)
 
-**Status:** Running ✅
-**Location:** `/home/e/.openclaw/workspace/mission-control`
-**URL:** http://127.0.0.1:4001
-**Version:** 1.3.0
-**Admin:** admin / Dereck2026!
-**API Key:** DY7rWOy8XDZN47mocEM5jO9WY3oeUDVF
+### Instance 1: OLD (port 3000)
+- **Location:** `/home/e/mission-control`
+- **Version:** 1.2.0
+- **URL:** http://localhost:3000
+- **Status:** Running (legacy, some features disconnected)
+- **Auth:** admin / (check .env)
+
+### Instance 2: NEW (port 4001) ✅ CURRENT
+- **Location:** `/home/e/mission-control-new`
+- **Version:** 1.3.0 (latest from GitHub)
+- **URL:** http://localhost:4001
+- **Admin:** admin / Dereck2026!
+- **API Key:** mc2-b1f86da9e058c65f8a1a4e3c37ac0311
+- **Gateway:** ws://127.0.0.1:18789
+- **Start command:** `cd /home/e/mission-control-new && PORT=4001 pnpm dev`
 
 **Update Check:** Bi-weekly (Saturdays 9 AM PST) via cron
 

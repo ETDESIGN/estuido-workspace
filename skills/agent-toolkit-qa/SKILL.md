@@ -63,6 +63,34 @@ sessions_spawn({
 
 ---
 
+## Model Fallback Strategy
+
+The QA agent uses a **zero-cost fallback chain** for reliable code review:
+
+| Priority | Model | Provider | Status |
+|----------|-------|----------|--------|
+| 1 | MiniMax | OpenRouter | Primary (FREE) |
+| 2 | Llama 3.3 70B | Groq | Fallback (FREE) |
+
+### How Fallback Works
+
+1. **Primary attempt:** MiniMax via OpenRouter
+2. **If 5xx/timeout/rate-limit:** Automatic retry with Llama via Groq
+3. **If all fail:** Escalate to GM
+
+All fallbacks are logged to console for monitoring.
+
+### Configuration
+
+```json
+{
+  "model": "openrouter/minimax/minimax-01",
+  "fallbackModels": ["openrouter/groq/llama-3.3-70b-versatile"]
+}
+```
+
+---
+
 **Pre-approved by:** GM  
 **HR tracking:** Enabled  
 **Audit level:** Full

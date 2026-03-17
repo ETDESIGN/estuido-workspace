@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Voice Note
+Comment=Record 5 seconds and transcribe to text
+Exec=bash /home/e/.openclaw/workspace/voice-simple.sh
+Icon=audio-input-microphone
+Terminal=true
+Categories=Utility;Audio;
+Keywords=voice;transcribe;record;speech;dictation;
+StartupNotify=true

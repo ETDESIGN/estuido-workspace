@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Voice Control
+Comment=Voice-controlled OpenClaw commands
+Exec=gnome-terminal -- bash -c 'bash /home/e/.openclaw/workspace/voice-commands.sh; read'
+Icon=preferences-desktop
+Terminal=false
+Categories=Utility;Audio;Settings;
+Keywords=voice;control;command;gateway;
+StartupNotify=true

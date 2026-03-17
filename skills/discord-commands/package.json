@@ -1,0 +1,31 @@
+{
+  "name": "discord-commands",
+  "version": "1.0.0",
+  "description": "Custom Discord slash commands",
+  "openclaw": {
+    "skills": {
+      "commands": {
+        "new": {
+          "handler": "./new.js",
+          "description": "Create a new session"
+        },
+        "model-glm47": {
+          "handler": "./model-glm47.js",
+          "description": "Switch to GLM 4.7 model"
+        },
+        "model-kimi": {
+          "handler": "./model-kimi.js",
+          "description": "Switch to Kimi K2.5 (OpenRouter)"
+        },
+        "model-minimax": {
+          "handler": "./model-minimax.js",
+          "description": "Switch to MiniMax M2.5 (OpenRouter)"
+        },
+        "flush-context": {
+          "handler": "./flush-context.js",
+          "description": "Flush context window"
+        }
+      }
+    }
+  }
+}

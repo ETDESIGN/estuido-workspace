@@ -85,11 +85,11 @@ function DashboardContent() {
         setBaselineTotalCost(newTotalCost)
       }
       
-      // Check for significant cost changes from baseline (more than $5 or 50%)
+      // Check for significant cost changes from baseline (more than $1)
       if (baselineTotalCost !== null && baselineTotalCost > 0) {
         const change = newTotalCost - baselineTotalCost
         const percentChange = change / baselineTotalCost
-        if (change > 5 || percentChange > 0.5) {
+        if (change > 1) {
           addNotification({
             type: 'warning',
             category: 'cost',

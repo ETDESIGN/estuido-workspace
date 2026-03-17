@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Voice to Agent
+Comment=Send voice commands to OpenClaw agents
+Exec=gnome-terminal -- bash -c 'bash /home/e/.openclaw/workspace/voice-to-agent.sh; read'
+Icon=audio-input-microphone
+Terminal=false
+Categories=Utility;Audio;Network;
+Keywords=voice;agent;assistant;ai;command;
+StartupNotify=true

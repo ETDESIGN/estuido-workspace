@@ -5,7 +5,7 @@ Implement a reliable API fallback loop for all OpenClaw agents. Since GLM-5 is n
 
 ## Current State
 - Location: `~/.openclaw/workspace/agents/`
-- Status: READY_FOR_QA
+- Status: CLOSED (Outdated - Superseded by GLM-4.7 migration)
 - Primary Model: MiniMax via OpenRouter (FREE)
 - Secondary Model: Llama 3 via Groq (FREE)
 

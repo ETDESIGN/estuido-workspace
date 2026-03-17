@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Voice Chat
+Comment=Live voice conversation with OpenClaw
+Exec=gnome-terminal -- bash -c 'bash /home/e/.openclaw/workspace/voice-chat-v2.sh; read'
+Icon=audio-headset
+Terminal=false
+Categories=Utility;Audio;Network;
+Keywords=voice;chat;assistant;ai;conversation;
+StartupNotify=true

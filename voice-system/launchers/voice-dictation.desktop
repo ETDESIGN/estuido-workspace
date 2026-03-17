@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Voice Dictation
+Comment=Continuous voice transcription (Ctrl+C to stop)
+Exec=gnome-terminal -- bash -c 'bash /home/e/.openclaw/workspace/voice-simple.sh --loop; read'
+Icon=audio-recorder
+Terminal=false
+Categories=Utility;Audio;
+Keywords=voice;dictation;continuous;loop;transcribe;
+StartupNotify=true

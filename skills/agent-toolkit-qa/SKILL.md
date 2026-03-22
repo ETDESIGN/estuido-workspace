@@ -13,26 +13,39 @@ description: Read-only audit toolkit for QA agents. Use for code review, testing
 | Tool | Purpose | Token Cost |
 |------|---------|------------|
 | read | Read files, analyze code | Low |
+| write | Write QA reports to files | Low |
+| edit | NOT GRANTED - can't modify code | N/A |
+| exec | Execute shell commands (npm test, dev server) | Medium |
 | browser | Test web interfaces | Medium |
 | sessions_list | Query agent sessions | Low |
+| process | Kill stuck processes | Low |
 
-## Explicitly NOT Granted
+## Constraints
 
-- write/edit (can't modify code)
-- exec (can't run commands)
-- process (can't kill processes)
-- sessions_spawn (can't spawn agents)
+- **NO code editing** - QA reviews but doesn't write implementation code
+- **Report writing OK** - Can create QA reports
+- **Shell execution OK** - Can run tests, dev servers, type checks
+- **Browser testing OK** - Can verify web interfaces
 
 ## Usage Pattern
 
 ```typescript
-// Spawn QA with read-only toolkit
+// Spawn QA with testing toolkit (UPDATED 2026-03-21)
 sessions_spawn({
   task: "Review TASK-XXX",
   agentId: "qa",
-  tools: ["read", "browser", "sessions_list"]
+  tools: ["read", "write", "exec", "browser", "sessions_list", "process"]
 })
 ```
+
+**Tool Access Summary:**
+- ✅ read (code review)
+- ✅ write (create QA reports)
+- ✅ exec (run tests, dev servers, npm commands)
+- ✅ browser (web interface testing)
+- ✅ sessions_list (check other agents)
+- ✅ process (kill stuck processes if needed)
+- ❌ edit (cannot modify implementation code)
 
 ## QA Process
 

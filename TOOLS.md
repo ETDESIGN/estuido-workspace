@@ -46,6 +46,51 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 ---
 
+## Discord Bot (ESTUDIO Bot)
+
+**Status:** ✅ Configured (2026-03-21)
+**Config:** `/home/e/.openclaw/workspace/notes/DISCORD_CONFIG.md`
+**Token:** [REDACTED - See openclaw.json]
+**Permissions:** 8866461766385655 (Most enabled)
+**Linked Channels:** 3 channels configured
+**Gateway:** Restart required after config changes
+
+**IMPORTANT:** This has been forgotten 3 times in 4 weeks. DON'T FORGET AGAIN!
+
+---
+
+## Google Workspace (Gog CLI)
+
+**Status:** ✅ Installed & Authenticated (2026-03-21)
+**Binary:** /usr/local/bin/gog (v0.12.0)
+**Account:** caneles2hk@gmail.com (AI workspace)
+**Personal:** etiawork@gmail.com (E's inbox)
+**Config:** `/home/e/.openclaw/workspace/notes/GOOGLE_WORKSPACE_CONFIG.md`
+
+**Services Enabled:**
+- Gmail (read, send, search, organize)
+- Google Calendar (events, scheduling)
+- Google Drive (files, folders)
+- Google Docs (create, edit)
+- Google Sheets (create, edit, analyze)
+- Google Contacts (manage)
+
+**OAuth:**
+- Client ID: 139608939133-arjp9dcglkl419qtse1s53kuol7tdpm8.apps.googleusercontent.com
+- Project: clawboatapi
+- Credentials: /home/e/.openclaw/client_secret.json
+- Token Storage: ~/.config/gogcli/credentials.json
+
+**Usage Examples:**
+```bash
+gog gmail search 'is:inbox' --max 10
+gog gmail send --to@example.com --subject "Test" --body "Hello"
+gog calendar events primary --from 2026-03-22 --to 2026-03-29
+gog drive files list --query 'name contains "report"'
+```
+
+---
+
 ## Default Models (Updated 2026-03-12)
 
 | Model | Provider | Status | Use |

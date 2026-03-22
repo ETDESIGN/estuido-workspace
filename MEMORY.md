@@ -77,17 +77,20 @@ workspace/
 | 2026-02-20 | ARCH checkpoint | Required before coding starts |
 
 ### Active Systems
-| System | Status | Location |
-|--------|--------|----------|
-| Mission Control (builderz) | Running ✅ | localhost:4001 (primary) |
-| Mission Control (old) | Discontinued | Was localhost:4000 |
-| Command Center | Discontinued | Was localhost:3333 |
-| Dashboard v2 | Local dev | localhost:3000 + :3002 |
-| Backend API | Running | Express on :3002 |
-| Tool Pipeline | Active | FS-watcher monitoring |
-| Cost Monitor | Active | Cron every hour |
-| QMD Search | Active | ~/.cache/qmd/index.sqlite |
-| WhatsApp Gateway | Flapping | Auto-reconnects |
+| System | Status | Location | Notes |
+|--------|--------|----------|-------|
+| **4-Manager Hierarchy** | ✅ OPERATIONAL | CTO, QA, Warren, GM | Phase 5-6 complete |
+| Mission Control (builderz) | Running ✅ | localhost:4001 (primary) | Version 1.3.0 |
+| Mission Control (old) | Discontinued | Was localhost:4000 | Legacy |
+| Command Center | Discontinued | Was localhost:3333 | Replaced |
+| Dashboard v2 | Local dev | localhost:3000 + :3002 | Feature complete |
+| Backend API | Running | Express on :3002 | Active |
+| Tool Pipeline | Active | FS-watcher monitoring | Auto-triggers |
+| Cost Monitor | Active | Cron every hour | $0.41/day |
+| QMD Search | Active | ~/.cache/qmd/index.sqlite | BM25 + vectors |
+| WhatsApp Gateway | Connected | OpenClaw gateway | Auto-reconnects |
+| **Discord Bot** | ✅ Configured | ESTUDIO Bot | 3 channels linked |
+| **Google Workspace** | ✅ Connected | caneles2hk@gmail.com | Gmail, Calendar, Drive, Docs, Sheets |
 
 ### Active Project Ideas
 | Date | Idea | Status |

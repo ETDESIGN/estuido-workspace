@@ -94,7 +94,7 @@ export function AlertSettings() {
             <Switch
               id="email-alerts"
               checked={config.emailEnabled}
-              onCheckedChange={(checked) => 
+              onCheckedChange={(checked: boolean) =>
                 setConfig(prev => ({ ...prev, emailEnabled: checked }))
               }
             />
@@ -122,7 +122,7 @@ export function AlertSettings() {
             <Switch
               id="webhook-alerts"
               checked={config.webhookEnabled}
-              onCheckedChange={(checked) => 
+              onCheckedChange={(checked: boolean) => 
                 setConfig(prev => ({ ...prev, webhookEnabled: checked }))
               }
             />

@@ -95,7 +95,7 @@ const services: ServiceStatus[] = [
 ]
 
 // Try to read NB Studio dashboard data
-let nbStudioData = null
+let nbStudioData: string | null = null
 try {
   const dashboardPath = '/home/e/nb-studio/00_MISSION_CONTROL/DASHBOARD.md'
   if (fs.existsSync(dashboardPath)) {

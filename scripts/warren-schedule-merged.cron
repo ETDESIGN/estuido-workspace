@@ -1,0 +1,37 @@
+# Combined Crontab - Warren + Existing Jobs
+# Generated: 2026-03-21
+
+# ============================================================
+# Warren (HR/Ops Manager) Monitoring
+# ============================================================
+
+# Agent Health Monitoring (Every 10 minutes)
+*/10 * * * * /home/e/.openclaw/workspace/scripts/warren-watchdog.sh >> /home/e/.openclaw/workspace/memory/warren-reports.log 2>&1
+
+# Budget Monitoring (Hourly)
+0 * * * * /home/e/.openclaw/workspace/scripts/warren-budget-check.sh >> /home/e/.openclaw/workspace/memory/warren-reports.log 2>&1
+
+# QA Loop Detection (Every 15 minutes)
+*/15 * * * * /home/e/.openclaw/workspace/scripts/warren-qa-loop-detector.sh >> /home/e/.openclaw/workspace/memory/warren-reports.log 2>&1
+
+# End-of-Day Report (6:00 PM daily)
+0 18 * * * /home/e/.openclaw/workspace/scripts/warren-eod-report.sh >> /home/e/.openclaw/workspace/memory/warren-eod-$(date +\%Y\%m\%d).log 2>&1
+
+# ============================================================
+# Existing Jobs (Preserved)
+# ============================================================
+
+# Workspace git backup (weekly Sundays 9 AM)
+0 9 * * 0 /home/e/.openclaw/workspace/scripts/workspace-git-backup.sh >> /home/e/.openclaw/workspace/logs/git-backup.log 2>&1
+
+# GitHub remote setup reminder (daily 8 PM)
+0 20 * * * echo 'Remind E about GitHub remote setup' >> /home/e/.openclaw/workspace/logs/reminders.log
+
+# Mission Control bi-weekly upgrade check (Saturdays 9 AM)
+0 9 * * 6 /home/e/.openclaw/cron/mc-upgrade-check.sh
+
+# Cost monitoring (twice daily: 12 PM and 6 PM)
+0 12,18 * * * /home/e/.openclaw/cron/cost-monitor-v2.sh >> /home/e/.openclaw/logs/cost-check.log 2>&1
+
+# OpenClaw Config Doc Sync (weekly Sundays 2 AM)
+0 2 * * 0 /home/e/.openclaw/workspace/skills/openclaw-config-doc-sync/scripts/run_complete_automation.sh >> /tmp/openclaw_sync.log 2>&1

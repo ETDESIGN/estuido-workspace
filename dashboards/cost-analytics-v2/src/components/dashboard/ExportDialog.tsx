@@ -105,7 +105,7 @@ export function ExportDialog({ currentDateRange }: ExportDialogProps) {
             <Label className="text-slate-300">Export Format</Label>
             <RadioGroup
               value={format}
-              onValueChange={(v) => setFormat(v as 'csv' | 'json')}
+              onValueChange={(v: string) => setFormat(v as 'csv' | 'json')}
               className="grid grid-cols-2 gap-4"
             >
               <div>
@@ -144,7 +144,7 @@ export function ExportDialog({ currentDateRange }: ExportDialogProps) {
             <Label className="text-slate-300">Date Range</Label>
             <RadioGroup
               value={dateRange}
-              onValueChange={(v) => setDateRange(v as DateRange | 'current')}
+              onValueChange={(v: string) => setDateRange(v as DateRange | 'current')}
               className="grid grid-cols-2 gap-2"
             >
               <div>

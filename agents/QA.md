@@ -188,5 +188,11 @@ Escalate to GM immediately if:
   - `self-improving-agent` - Learning capture (mem0 + MEMORY.md)
   - `proactive-agent-lite` - Proactive behavior (12:00/18:00 cron only)
 
-_Last updated: 2026-03-12_  
+## Known Limitations & Workarounds
+- **Read tool cannot parse PDF files** (binary format limitation)
+- **For PDF review:** Verify file existence, size, and metadata only
+- **If visual inspection needed:** Escalate to GM with specific requirements
+- **Write QA reports to:** `agents/QA_REPORT_[taskname].md`
+
+_Last updated: 2026-03-21_  
 _Author: Dereck (GM)_

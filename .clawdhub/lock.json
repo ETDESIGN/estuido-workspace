@@ -20,6 +20,10 @@
     "proactive-agent-lite": {
       "version": "1.0.0",
       "installedAt": 1773268565868
+    },
+    "generate-excel": {
+      "version": "1.0.0",
+      "installedAt": 1773868026077
     }
   }
 }

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash 360 共享充电系统采购询价单</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+            @bottom-center {
+                content: "第 " counter(page) " 页 / Page " counter(page) " of 5";
+                font-size: 9pt;
+                color: #666;
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .cover-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3c72 0%, #667eea 100%);
+            color: white;
+            text-align: center;
+            page-break-after: always;
+        }
+
+        .cover-page h1 {
+            font-size: 36pt;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cover-page h2 {
+            font-size: 18pt;
+            margin-bottom: 40px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .cover-page .project-code {
+            font-size: 24pt;
+            margin: 40px 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .cover-page .quantity {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin: 40px 0;
+            font-size: 16pt;
+        }
+
+        .cover-page .quantity span {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            border-radius: 10px;
+        }
+
+        .cover-page .footer {
+            margin-top: auto;
+            font-size: 10pt;
+            opacity: 0.7;
+        }
+
+        .page {
+            page-break-after: always;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #667eea 100%);
+            color: white;
+            padding: 15mm 20mm;
+            margin: -20mm -20mm 20mm -20mm;
+        }
+
+        .header h1 {
+            font-size: 24pt;
+            font-weight: 700;
+        }
+
+        .header h2 {
+            font-size: 14pt;
+            font-weight: 400;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        h1 {
+            color: #1e3c72;
+            font-size: 18pt;
+            font-weight: 700;
+            margin: 20px 0 15px 0;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 16pt;
+            font-weight: 600;
+            margin: 15px 0 10px 0;
+        }
+
+        h3 {
+            color: #667eea;
+            font-size: 14pt;
+            font-weight: 600;
+            margin: 12px 0 8px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        th {
+            background: #1e3c72;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        tr:nth-child(odd) {
+            background: white;
+        }
+
+        .callout {
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid;
+            border-radius: 4px;
+        }
+
+        .callout.info {
+            background: #f0f4f8;
+            border-left-color: #1e3c72;
+        }
+
+        .callout.warning {
+            background: #fff5f5;
+            border-left-color: #c31432;
+        }
+
+        .callout.highlight {
+            background: #fffbeb;
+            border-left-color: #f59e0b;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: attr(data-icon);
+            position: absolute;
+            left: 0;
+            font-size: 16pt;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .checkbox-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checkbox-list li {
+            padding: 5px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .checkbox-list li:before {
+            content: "□";
+            position: absolute;
+            left: 0;
+            font-size: 14pt;
+            color: #667eea;
+        }
+
+        .contact-section {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .highlight {
+            background: #fffbeb;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .section-alt {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px -15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1: Cover -->
+    <div class="cover-page">
+        <h1>共享充电系统采购询价单</h1>
+        <h2>Charging Dock & Power Bank RFQ - Integrated System</h2>
+        <div class="project-code">Flash 360</div>
+        <div class="quantity">
+            <span>充电柜 20台</span>
+            <span>充电宝 500个</span>
+        </div>
+        <div style="margin: 20px 0; font-size: 12pt;">
+            <p><strong>Date:</strong> [DATE]</p>
+            <p><strong>Company:</strong> [YOUR LOGO]</p>
+        </div>
+        <div class="footer">
+            Confidential - For Authorized Suppliers Only
+        </div>
+    </div>
+
+    <!-- Page 2: Project Overview -->
+    <div class="page">
+        <div class="header">
+            <h1>项目背景</h1>
+            <h2>Project Background</h2>
+        </div>
+
+        <p>新客户采购智能充电柜与配套充电宝系统，用于共享充电宝租赁业务。本项目面向欧洲市场，年需求量稳定，寻求具备研发能力的长期合作伙伴。</p>
+        <p style="margin-top: 10px;">New client procurement of intelligent charging dock and matching power bank system for shared power bank rental business. This project targets the European market with stable annual demand, seeking long-term partners with R&D capabilities.</p>
+
+        <h3>项目参数 Project Parameters</h3>
+        <table>
+            <tr>
+                <th>项目 Item</th>
+                <th>规格 Specification</th>
+            </tr>
+            <tr>
+                <td>产品名称 Product Name</td>
+                <td><strong>Flash 360</strong> 智能充电系统</td>
+            </tr>
+            <tr>
+                <td>应用场景 Application</td>
+                <td>共享充电宝租赁 Shared Power Bank Rental</td>
+            </tr>
+            <tr>
+                <td>目标市场 Target Market</td>
+                <td>欧洲 Europe</td>
+            </tr>
+            <tr>
+                <td>认证要求 Certifications</td>
+                <td><span class="highlight">CE (Mandatory)</span></td>
+            </tr>
+        </table>
+
+        <h3>年需求量 Annual Volume Forecast</h3>
+        <ul class="feature-list">
+            <li data-icon="📦">充电柜 Charging Docks: 约80台/年 (~80 units/year)</li>
+            <li data-icon="🔋">充电宝 Power Banks: 约2,000个/年 (~2,000 units/year)</li>
+            <li data-icon="🚀">首单 Trial Order: 充电柜20台 + 充电宝500个</li>
+        </ul>
+
+        <div class="callout info">
+            <h4 style="margin-top: 0;">💡 设计理念 Design Philosophy</h4>
+            <p>高可靠性、防盗安全、用户友好、易于维护</p>
+            <p>High reliability, anti-theft security, user-friendly, easy maintenance</p>
+        </div>
+    </div>
+
+    <!-- Page 3: Charging Dock Specifications -->
+    <div class="page">
+        <div class="header">
+            <h1>充电柜技术规格</h1>
+            <h2>Charging Dock Technical Specifications</h2>
+        </div>
+
+        <h3>基础参数 Basic Parameters</h3>
+        <table>
+            <tr>
+                <th>参数 Parameter</th>
+                <th>详情 Details</th>
+            </tr>
+            <tr>
+                <td>槽位配置 Slot Config</td>
+                <td>6槽/柜，可扩展至12槽 (6 slots, expandable to 12)</td>
+            </tr>
+            <tr>
+                <td>尺寸 Dimensions</td>
+                <td>200mm(深) × 200mm(高) × 135mm(宽)</td>
+            </tr>
+            <tr>
+                <td>充电方式 Charging</td>
+                <td><span class="highlight">弹针接触 (Pogo Pin Contact)</span></td>
+            </tr>
+            <tr>
+                <td>输入电压 Input</td>
+                <td>12V DC</td>
+            </tr>
+            <tr>
+                <td>单槽输出 Output</td>
+                <td>5V 1A (NO fast charging)</td>
+            </tr>
+            <tr>
+                <td>充电时间 Charge Time</td>
+                <td>1-1.5小时/槽</td>
+            </tr>
+            <tr>
+                <td>通讯接口 Communication</td>
+                <td>UART Serial Port</td>
+            </tr>
+            <tr>
+                <td>机身材质 Housing</td>
+                <td>ABS+PC 防火材料</td>
+            </tr>
+        </table>
+
+        <div class="callout highlight">
+            <strong>配置灵活</strong> - 可为单柜10槽，或双柜各8槽配置<br>
+            <strong>Flexible configuration</strong> - can be single 10-slot or dual 8-slot per dock
+        </div>
+
+        <h3>详细功能列表 Detailed Functionality List</h3>
+
+        <h4 style="color: #1e3c72;">🔌 充电系统 Charging System</h4>
+        <ul class="feature-list">
+            <li data-icon="✓">纯弹针充电设计，机柜无任何USB充电接口</li>
+            <li data-icon="⚠️"><strong>Pure pogo pin charging, NO USB ports on dock</strong></li>
+            <li data-icon="✓">每槽独立充电管理，互不干扰</li>
+            <li data-icon="✓">Independent charging management per slot</li>
+        </ul>
+
+        <h4 style="color: #1e3c72;">🔒 安全锁止 Security Locking</h4>
+        <ul class="feature-list">
+            <li data-icon="✓">金属锁扣机制 (Metal latch mechanism)</li>
+            <li data-icon="✓">防盗设计，防止暴力撬取电池</li>
+            <li data-icon="✓"><strong>Anti-theft design, prevents forced battery removal</strong></li>
+            <li data-icon="✓">锁扣配合电池外壳沟槽使用</li>
+            <li data-icon="✓">Works with battery shell grooves</li>
+        </ul>
+
+        <h4 style="color: #1e3c72;">📡 通讯功能 Communication</h4>
+        <ul class="feature-list">
+            <li data-icon="✓">UART串口数据输出</li>
+            <li data-icon="📋"><strong>可读取数据 Readable data:</strong></li>
+            <li data-icon="✅">电池序列号 Battery Serial Number <strong>(REQUIRED)</strong></li>
+            <li data-icon="⭐">电池电量 Battery Level <span style="color: #666;">(NTH - Nice To Have)</span></li>
+            <li data-icon="⭐">循环次数 Cycle Count <span style="color: #666;">(NTH)</span></li>
+            <li data-icon="⭐">电池释放状态 Release Status <span style="color: #666;">(NTH)</span></li>
+            <li data-icon="⭐">电池在位检测 Presence Detection <span style="color: #666;">(NTH)</span></li>
+        </ul>
+
+        <h4 style="color: #1e3c72;">🎵 用户反馈 User Feedback</h4>
+        <ul class="feature-list">
+            <li data-icon="✓">电池正确插入时触发提示音</li>
+            <li data-icon="✓"><strong>Audio confirmation when battery inserted correctly</strong></li>
+            <li data-icon="✓">LED状态指示灯 (蓝/红/绿)</li>
+            <li data-icon="✓">LED status indicators (Blue/Red/Green)</li>
+        </ul>
+    </div>
+
+    <!-- Page 4: Engineering + Power Bank Specs -->
+    <div class="page">
+        <div class="header">
+            <h1>工程规格 & 充电宝技术规格</h1>
+            <h2>Engineering & Power Bank Specifications</h2>
+        </div>
+
+        <h3>工程要求表 Engineering Requirements</h3>
+        <table>
+            <tr>
+                <th>要求 Requirement</th>
+                <th>规格 Specification</th>
+                <th>目的 Purpose</th>
+            </tr>
+            <tr>
+                <td>弹针接触可靠性<br>Reliable Pogo Pin Contact</td>
+                <td>一次插入可靠接触，无需二次按压<br>Single-insert reliable contact</td>
+                <td>确保充电稳定性<br>Ensure charging stability</td>
+            </tr>
+            <tr>
+                <td>金属锁扣结构<br>Metal Latch Structure</td>
+                <td>金属材质，配合电池沟槽<br>Metal material, matches battery grooves</td>
+                <td>防盗防撬<br>Anti-theft protection</td>
+            </tr>
+            <tr>
+                <td>内部线槽设计<br>Internal Cable Channel</td>
+                <td>加大走线空间，避免线缆干扰<br>Enlarged cable space, avoids interference</td>
+                <td>保证电池顺畅滑入<br>Ensure smooth battery insertion</td>
+            </tr>
+            <tr>
+                <td>弹簧力度校准<br>Spring Tension Calibration</td>
+                <td>水平持握时电池固定，取出力度适中<br>Fixed when horizontal, moderate removal force</td>
+                <td>优化用户体验<br>Optimize user experience</td>
+            </tr>
+        </table>
+
+        <div class="callout warning" style="margin: 30px 0;">
+            <h3 style="margin-top: 0; color: #c31432;">⚠️ 特殊产品警告 Special Product Warning</h3>
+            <p><strong>此产品为专用机柜配套电池，<span style="color: #c31432; font-size: 14pt;">非消费级充电宝</span>。用户无法自行充电，必须通过机柜弹针充电。</strong></p>
+            <p style="margin-top: 10px;"><strong>This is <span style="color: #c31432;">DEDICATED</span> equipment battery, <span style="color: #c31432;">NOT</span> consumer power bank. Users <span style="color: #c31432;">CANNOT</span> self-charge, <span style="color: #c31432;">ONLY</span> via dock pogo pins.</strong></p>
+        </div>
+
+        <h3>核心规格表 Core Specifications</h3>
+        <table>
+            <tr>
+                <th>规格 Spec</th>
+                <th>要求 Requirement</th>
+            </tr>
+            <tr>
+                <td>容量 Capacity</td>
+                <td>5000mAh (公差 ±2000mAh，即3000-7000mAh可接受)</td>
+            </tr>
+            <tr>
+                <td>电芯类型 Cell Type</td>
+                <td>锂离子聚合物 Li-Polymer (需指定品牌 Specify brand)</td>
+            </tr>
+            <tr>
+                <td>充电输入 Charging Input</td>
+                <td><strong><span style="color: #c31432;">仅弹针触点 Pogo pin contacts ONLY</span></strong></td>
+            </tr>
+            <tr>
+                <td>放电输出 Output</td>
+                <td>内置三线 Built-in 3 cables: Micro USB + Type-C + Lightning</td>
+            </tr>
+            <tr>
+                <td>电源控制 Power Control</td>
+                <td>无物理按键 <strong>No physical button</strong> (Always ready)</td>
+            </tr>
+            <tr>
+                <td>序列号管理 Serial Number</td>
+                <td>每颗唯一SN，UART可读 <strong>Unique per unit, UART readable</strong></td>
+            </tr>
+            <tr>
+                <td>电量显示 Indicator</td>
+                <td>LED指示灯 LED indicator (4档优选 4-level preferred)</td>
+            </tr>
+            <tr>
+                <td>外壳配合 Housing</td>
+                <td><strong>金属锁扣沟槽 Metal latch grooves</strong></td>
+            </tr>
+            <tr>
+                <td>认证 Certification</td>
+                <td><span class="highlight">CE (强制 Mandatory)</span></td>
+            </tr>
+        </table>
+
+        <h3>关键设计说明 Critical Design Notes</h3>
+        <div class="section-alt">
+            <h4 style="margin-top: 0;">🔋 容量说明 Capacity Note</h4>
+            <p>标称5000mAh，接受范围3000-7000mAh。需明确电芯品牌(三星Samsung/LG/ATL/国产)及具体型号。</p>
+        </div>
+
+        <div class="section-alt">
+            <h4 style="margin-top: 0;">🔌 无自充设计 No Self-Charging Design</h4>
+            <p>机身上无任何USB/Type-C/Micro USB充电接口。用户无法自行充电，防止流失。</p>
+        </div>
+
+        <div class="section-alt">
+            <h4 style="margin-top: 0;">🔢 序列号管理 Serial Number Management</h4>
+            <p>每颗电池烧录唯一SN，通过UART通讯读取。用于：</p>
+            <ul>
+                <li>资产追踪 Asset tracking</li>
+                <li>计费统计 Billing statistics</li>
+                <li>防盗追踪 Anti-theft tracking</li>
+            </ul>
+        </div>
+
+        <div class="section-alt">
+            <h4 style="margin-top: 0;">🚫 无电源键 No Power Button</h4>
+            <p>插入设备自动激活，取出后自动休眠。简化用户操作，降低故障点。</p>
+        </div>
+    </div>
+
+    <!-- Page 5: Quotation Requirements -->
+    <div class="page">
+        <div class="header">
+            <h1>询价要求</h1>
+            <h2>Quotation Requirements</h2>
+        </div>
+
+        <div class="two-column">
+            <div>
+                <h3>充电柜 Charging Dock (20 units)</h3>
+                <ul class="checkbox-list">
+                    <li>单价(含运费) Unit price (including shipping)</li>
+                    <li>开模费/NRE费用 Mold/NRE costs</li>
+                    <li>固件开发费 Firmware development fee</li>
+                    <li>是否可用公模? Public mold available?</li>
+                    <li>样品交期 Sample lead time</li>
+                    <li>批量交期(80台) Bulk lead time (80 units)</li>
+                    <li>质保条款 Warranty terms</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>充电宝 Power Bank (500 units)</h3>
+                <ul class="checkbox-list">
+                    <li>500个单价 Unit price (500 pcs)</li>
+                    <li>2000个单价 Unit price (2,000 pcs)</li>
+                    <li>电芯品牌及型号 Cell brand & model</li>
+                    <li>SN烧录费用 SN programming fee</li>
+                    <li>认证费用 Certification costs</li>
+                    <li>模具情况 Mold status (public/custom)</li>
+                    <li>样品交期 Sample lead time</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>供应商需提供 Supplier Must Provide</h3>
+        <ul class="feature-list">
+            <li data-icon="📎">公司资料 Company Profile</li>
+            <li data-icon="📎">营业执照 Business License</li>
+            <li data-icon="📎">类似案例 Similar project cases (共享充电宝/充电柜优先)</li>
+            <li data-icon="📎">工厂照片/视频 Factory photos/video</li>
+            <li data-icon="📎">电芯规格书 Cell specifications</li>
+            <li data-icon="📎">现有产品目录 Current product catalog</li>
+        </ul>
+
+        <div class="contact-section">
+            <h3 style="margin-top: 0;">联系方式 Contact Information</h3>
+
+            <p><strong>📧 资料发送 Please send materials to:</strong><br>
+            [Your Email] / [Your WeChat]</p>
+
+            <p style="margin-top: 15px;"><strong>📞 紧急联系 Urgent Contact:</strong><br>
+            [Your Phone]</p>
+
+            <p style="margin-top: 15px;"><strong>⏰ 回复截止 Response Deadline:</strong><br>
+            [Date - suggest 7 days from sending]</p>
+        </div>
+
+        <div style="margin-top: 30px; text-align: center; color: #666;">
+            <p style="font-style: italic;">详细规格书、尺寸图纸、操作视频可另行提供。</p>
+            <p style="font-style: italic;">Detailed specification, dimension drawings, and operation video available upon request.</p>
+        </div>
+
+        <div style="margin-top: 40px; text-align: center;">
+            <h2 style="color: #1e3c72; border: none; margin: 0;">期待长期合作，谢谢！</h2>
+            <p style="font-size: 14pt; color: #667eea; margin-top: 10px;">Looking forward to long-term partnership. Thank you!</p>
+        </div>
+
+        <div style="margin-top: 30px; text-align: center; font-size: 9pt; color: #999; border-top: 1px solid #ddd; padding-top: 15px;">
+            Confidential - For Authorized Suppliers Only
+        </div>
+    </div>
+</body>
+</html>

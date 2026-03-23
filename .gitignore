@@ -34,3 +34,4 @@ Thumbs.db
 # Temp files
 *.tmp
 *.tempclient_secret.json
+credentials/

@@ -174,6 +174,32 @@ qmd index ~/.cache/qmd/estudio/ --pattern "**/*.md"  # Re-index
 
 ---
 
+## Media Archive (Images & Audio)
+
+**Status:** ✅ Working (2026-03-23)
+**Script:** `~/openclaw/workspace/scripts/archive-media.sh`
+**Archive Location:** `~/openclaw/workspace/archive/`
+
+**Purpose:** Copy inbound media from gateway to workspace so I can analyze it
+
+**Usage:**
+```bash
+./scripts/archive-media.sh
+# Copies all images/audio from ~/.openclaw/media/inbound/ to workspace/archive/
+# Adds timestamps: image-20260323-060743.png
+```
+
+**Directory Structure:**
+```
+archive/
+├── images/  # PNG, JPG, GIF, WebP
+└── audio/   # MP3, WAV, M4A, OGG
+```
+
+**Note:** Gateway stores media outside workspace (sandbox restriction). Run this script after receiving images/audio to archive them for analysis.
+
+---
+
 ## Power Skills (Zero-RAM Tools)
 **Location:** `/home/e/nb-studio/scripts/`
 

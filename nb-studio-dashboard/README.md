@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎯 ESTUDIO Dashboard
 
-## Getting Started
+A modern, responsive dashboard for monitoring and managing NB Studio agents, sessions, and AI models.
 
-First, run the development server:
+## 🚀 Features
+
+- **Real-time Dashboard** - Monitor agent activity, system health, and resource usage
+- **Collapsible Sidebar Navigation** - Responsive sidebar with smooth animations
+- **Agent Management** - Track active agents, their tasks, and resource consumption
+- **System Health** - CPU, memory, and disk monitoring
+- **Session Tracking** - View and manage agent sessions (coming soon)
+- **Model Management** - Configure and monitor AI models (coming soon)
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Icons**: Lucide React
+- **Data Fetching**: SWR
+- **Charts**: Recharts
+
+## 📦 Installation
+
+```bash
+npm install
+```
+
+## 🏃 Getting Started
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the dashboard.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                    # Next.js app router pages
+│   ├── api/               # API routes
+│   ├── dashboard/         # Main dashboard
+│   ├── sessions/          # Sessions page
+│   ├── models/            # Models page
+│   └── settings/          # Settings page
+├── components/            # Reusable React components
+│   ├── Sidebar.tsx       # Collapsible sidebar
+│   ├── SidebarItem.tsx   # Navigation items
+│   └── DashboardLayout.tsx # Layout wrapper
+├── lib/                   # Utility functions
+└── types/                 # TypeScript type definitions
+```
 
-## Learn More
+## 🎨 Navigation
 
-To learn more about Next.js, take a look at the following resources:
+The dashboard features a responsive sidebar with four main sections:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Dashboard** (`/`) - Overview of system health and agent activity
+- **Sessions** (`/sessions`) - Agent session management
+- **Models** (`/models`) - AI model configuration
+- **Settings** (`/settings`) - User preferences
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Desktop
+- Click the arrow (←/→) to collapse/expand the sidebar
+- Click navigation items to switch pages
+- Active route is highlighted
 
-## Deploy on Vercel
+### Mobile
+- Tap the hamburger menu (☰) to open the sidebar
+- Tap navigation items to navigate (menu closes automatically)
+- Tap outside the sidebar or the X button to close
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📊 API Endpoints
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `GET /api/dashboard` - Fetches dashboard data (agents, stats, system health)
+
+## 🔧 Development
+
+### Type Check
+
+```bash
+npx tsc --noEmit
+```
+
+### Build
+
+```bash
+npm run build
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## 📖 Documentation
+
+- [Sidebar Implementation Details](./SIDEBAR_IMPLEMENTATION.md)
+- [Quick Reference Guide](./SIDEBAR_QUICKREF.md)
+
+## 🚀 Deployment
+
+Build the production version:
+
+```bash
+npm run build
+npm start
+```
+
+## 📝 Notes
+
+- Dashboard data refreshes every 5 seconds automatically
+- All timestamps are displayed in local time
+- System health metrics are pulled from the OpenClaw gateway
+
+## 🎯 Roadmap
+
+- [ ] Session history and filtering
+- [ ] Model configuration management
+- [ ] User preferences and theming
+- [ ] Cost tracking and alerts
+- [ ] Agent performance analytics

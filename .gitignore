@@ -33,4 +33,4 @@ Thumbs.db
 
 # Temp files
 *.tmp
-*.temp
+*.tempclient_secret.json

@@ -8,10 +8,10 @@
 # Periodic Checks (every ~2 hours while E is asleep/away)
 
 ## Active Tasks to Monitor
-- [ ] CTO dashboard upgrade - COMPLETED
+- [ ] Boardroom discussion - Dashboard blockers (QA rejected 2x)
+- [ ] Gateway config restore - Fix bind mode + auth
+- [ ] CTO task assignment - New work for tomorrow
 - [ ] fs-watcher automation - RUNNING
-- [ ] Any spawned subagents - check progress
-- [ ] Remind E about GitHub remote setup (8 PM tonight)
 
 ## Heartbeat Actions (Zero-RAM System Ops - v2.0)
 

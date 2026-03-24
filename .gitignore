@@ -35,3 +35,4 @@ Thumbs.db
 *.tmp
 *.tempclient_secret.json
 credentials/
+discord-voice-bot/

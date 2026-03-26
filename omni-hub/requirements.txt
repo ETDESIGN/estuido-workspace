@@ -1,0 +1,11 @@
+# WhatsApp Router Dependencies
+# Omni-Hub System
+
+# Core dependencies
+openai>=1.0.0          # OpenAI Whisper API for transcription
+
+# Optional transcription fallbacks
+whisper>=20231117      # Local Whisper transcription
+SpeechRecognition>=3.10.0  # Google Speech Recognition fallback
+
+# qmd integration is via system CLI - no Python package needed

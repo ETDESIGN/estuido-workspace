@@ -1,0 +1,15 @@
+{
+  "name": "estudio-whatsapp-sender",
+  "version": "1.0.0",
+  "description": "Autonomous WhatsApp messaging for ESTUDIO GM",
+  "main": "sender.js",
+  "scripts": {
+    "start": "node sender.js",
+    "send": "node sender.js send",
+    "init": "node sender.js init"
+  },
+  "dependencies": {
+    "whatsapp-web.js": "^1.23.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}

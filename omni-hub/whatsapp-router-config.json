@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-03-25T23:30:00.000000",
+  "whatsappAccounts": {
+    "main": "+8618566570937",
+    "dereck": "+85267963406"
+  },
+  "trusted": {
+    "e": {
+      "name": "E (God Mode)",
+      "phone": "+8618566570937",
+      "phone_normalized": "8618566570937",
+      "agentAccess": "all",
+      "enabled": true,
+      "added": "2026-03-25T23:28:35.180513",
+      "notes": "Full admin access to all agents and workspaces. Chief of Staff activation."
+    }
+  },
+  "sandboxed": {
+    "inerys": {
+      "name": "Inerys Agent (Florian)",
+      "phone": "PENDING",
+      "phone_normalized": "",
+      "agentAccess": "inerys-agent",
+      "enabled": false,
+      "added": "2026-03-25T23:30:00.000000",
+      "notes": "Will add Florian's number later to Dereck's WhatsApp contact list"
+    }
+  },
+  "blocked": [],
+  "routing": {
+    "defaultAgent": "main",
+    "allowUnknown": false,
+    "saveUnknownMessages": true,
+    "whitelistFromContacts": true,
+    "note": "Use existing WhatsApp contact list as whitelist. Don't contact unsolicited."
+  },
+  "features": {
+    "transcriptionEnabled": true,
+    "qmdIntegration": true,
+    "autoSaveToMemory": false
+  },
+  "briefing": {
+    "enabled": true,
+    "time": "10:00",
+    "timezone": "Asia/Hong_Kong",
+    "recipient": "+8618566570937",
+    "content": ["system_health", "api_budget", "client_pipelines"]
+  },
+  "logLevel": "INFO"
+}

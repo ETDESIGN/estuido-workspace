@@ -1,0 +1,42 @@
+# Test Lead Data for Inerys Agent Pipeline
+# These are TEST emails only - do not send real emails
+
+Test Lead 1
+Email: jean.dupont@test-company-1.com
+Company: BeautyFrance Paris
+Niche: Beauty/Cosmetics
+Status: New
+Warm/Cold: Cold
+Notes: Distributeur de produits cosmétiques haut de gamme
+
+Test Lead 2
+Email: marie.martin@test-retailer-2.com
+Company: ÉcoMode Distribution
+Niche: Eco-fashion/Sustainable
+Status: New
+Warm/Cold: Warm
+Notes: Spécialiste de la mode éco-responsable, intérêt pour Proteke
+
+Test Lead 3
+Email: pierre.leroy@test-food-3.com
+Company: Gourmet Delights France
+Niche: Food/Gourmet
+Status: New
+Warm/Cold: Cold
+Notes: Importateur de produits alimentaires premium
+
+Test Lead 4
+Email: sophie.bernard@test-fashion-4.com
+Company: Style & Trend Paris
+Niche: Fashion Accessories
+Status: New
+Warm/Cold: Cold
+Notes: Boutique de vêtements et accessoires
+
+Test Lead 5
+Email: alain.petit@test-cosmetics-5.com
+Company: BioSkincare Laboratories
+Niche: Beauty/Organic
+Status: New
+Warm/Cold: Warm
+Notes: Laboratoire de cosmétiques bio, besoin d'emballages certifiés

@@ -1,0 +1,170 @@
+#!/usr/bin/env node
+/**
+ * ESTUDIO WhatsApp Service
+ * HTTP API for sending WhatsApp messages
+ * Runs on port 3000 alongside OpenClaw gateway
+ */
+
+import express from 'express';
+import cors from 'cors';
+import pkg from 'whatsapp-web.js';
+const { Client, LocalAuth } = pkg;
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const SESSION_PATH = path.join(process.env.HOME, '.openclaw/credentials/whatsapp/dereck');
+const SENT_LOG = path.join(process.env.HOME, '.openclaw/workspace/whatsapp-sent.json');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+let whatsappClient = null;
+let isReady = false;
+
+// Initialize WhatsApp client
+async function initWhatsApp() {
+    console.log('🚀 Initializing ESTUDIO WhatsApp Service...\n');
+    
+    whatsappClient = new Client({
+        authStrategy: new LocalAuth({
+            dataPath: SESSION_PATH,
+            clientId: 'dereck'
+        }),
+        puppeteer: {
+            headless: true,
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+                '--disable-accelerated-2d-canvas',
+                '--no-first-run',
+                '--no-zygote',
+                '--single-process',
+                '--disable-gpu'
+            ]
+        }
+    });
+    
+    whatsappClient.on('qr', (qr) => {
+        console.log('⚠️  QR code generated - session may need re-authentication');
+        console.log('   This should not happen with existing session\n');
+    });
+    
+    whatsappClient.on('ready', () => {
+        console.log('✅ WhatsApp client ready!\n');
+        isReady = true;
+    });
+    
+    whatsappClient.on('authenticated', () => {
+        console.log('✅ WhatsApp authenticated!\n');
+    });
+    
+    whatsappClient.on('auth_failure', (msg) => {
+        console.error('❌ Authentication failed:', msg);
+    });
+    
+    await whatsappClient.initialize();
+}
+
+// Log sent messages
+function logSent(target, message, method) {
+    const log = [];
+    if (fs.existsSync(SENT_LOG)) {
+        const data = fs.readFileSync(SENT_LOG, 'utf8');
+        log.push(...JSON.parse(data).messages);
+    }
+    
+    log.push({
+        id: `sent-${Date.now()}`,
+        target,
+        message,
+        method,
+        sent: new Date().toISOString()
+    });
+    
+    fs.writeFileSync(SENT_LOG, JSON.stringify({ messages: log }, null, 2));
+}
+
+// Health check
+app.get('/health', (req, res) => {
+    res.json({
+        status: 'ok',
+        whatsapp: isReady ? 'ready' : 'initializing',
+        timestamp: new Date().toISOString()
+    });
+});
+
+// Send message endpoint
+app.post('/send', async (req, res) => {
+    const { target, message } = req.body;
+    
+    if (!target || !message) {
+        return res.status(400).json({
+            error: 'Missing required fields: target, message'
+        });
+    }
+    
+    if (!isReady) {
+        return res.status(503).json({
+            error: 'WhatsApp client not ready',
+            status: 'initializing'
+        });
+    }
+    
+    try {
+        // Format number
+        let chatId = target;
+        if (!chatId.includes('@')) {
+            chatId = chatId.replace(/\D/g, '') + '@c.us';
+        }
+        
+        // Send message
+        await whatsappClient.sendMessage(chatId, message);
+        
+        // Log
+        logSent(target, message, 'api');
+        
+        console.log(`✅ Sent to ${target}: ${message.substring(0, 50)}...`);
+        
+        res.json({
+            success: true,
+            target,
+            messagePreview: message.substring(0, 100)
+        });
+        
+    } catch (error) {
+        console.error('❌ Send failed:', error.message);
+        res.status(500).json({
+            error: error.message,
+            target
+        });
+    }
+});
+
+// Get sent messages log
+app.get('/sent', (req, res) => {
+    if (fs.existsSync(SENT_LOG)) {
+        const data = fs.readFileSync(SENT_LOG, 'utf8');
+        res.json(JSON.parse(data));
+    } else {
+        res.json({ messages: [] });
+    }
+});
+
+// Start server
+const PORT = 3000;
+
+initWhatsApp().then(() => {
+    app.listen(PORT, () => {
+        console.log(`\n🎯 ESTUDIO WhatsApp Service running on port ${PORT}`);
+        console.log(`📡 API endpoint: http://localhost:${PORT}/send`);
+        console.log(`❤️  Health check: http://localhost:${PORT}/health\n`);
+        console.log('📱 Ready to send messages!\n');
+    });
+}).catch(error => {
+    console.error('Failed to start:', error);
+    process.exit(1);
+});

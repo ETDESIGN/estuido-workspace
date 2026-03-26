@@ -1,0 +1,16 @@
+{
+  "contacts": [
+    {
+      "business_name": "Freds Terroirs",
+      "website": "freds.hk",
+      "contact_name": "Fred Terroirs",
+      "phone": "+852 5577 7535",
+      "email": "",
+      "status": "active",
+      "customer_since": "before-2026-03-26",
+      "relationship": "good customer, long-term",
+      "industry": "E-commerce / Online Grocery",
+      "notes": "Built and manages freds.hk website. WordPress + WooCommerce."
+    }
+  ]
+}

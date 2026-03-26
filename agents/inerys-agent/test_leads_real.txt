@@ -1,0 +1,57 @@
+# Test Leads - French Packaging Companies (Public Business Contacts)
+# These are publicly available business contact emails meant for B2B inquiries
+# Source: Public company websites and business directories
+# Purpose: Testing the Inerys Agent research pipeline ONLY (no actual emails sent)
+
+Lead 1
+Company: Altipa
+Email: contact@altipa.fr
+Website: https://www.altipa.fr
+Niche: Packaging - Flexible Packaging
+Status: Cold
+Notes: Spécialiste en emballage souples, solutions sur mesure
+
+Lead 2
+Company: Leducq Emballages
+Email: info@leducq-emballages.fr
+Website: https://www.leducq-emballages.fr
+Niche: Packaging - Plastic Packaging
+Status: Cold
+Notes: Emballages en matières plastiques de qualité, fabriqués en France
+
+Lead 3
+Company: Glory Emballage
+Email: contact@glory-emballage.fr
+Website: https://www.glory-emballage.fr
+Niche: Packaging - Paper & Gift Packaging
+Status: Cold
+Notes: Spécialiste sacs papier, boites cadeaux, sachets et pochettes
+
+Lead 4
+Company: DPL (Diffusion Packaging Logistique)
+Email: commercial@dpl-packaging.fr
+Website: https://www.dpl-packaging.fr
+Niche: Packaging - Logistics & Contract Packaging
+Status: Cold
+Notes: Logisticien et conditionneur à façon, grande distribution et professionnels
+
+Lead 5
+Company: BHS Corrugated France
+Email: france@bhs-corrugated.com
+Website: https://www.bhs-corrugated.fr
+Niche: Packaging - Eco-friendly Corrugated Packaging
+Status: Cold
+Notes: Solutions d'emballage respectueuses de l'environnement, carton ondulé
+
+# ========================================
+# IMPORTANT NOTES:
+# ========================================
+# 1. These are PUBLIC business contact emails from company websites
+# 2. They are meant for B2B inquiries and business partnerships
+# 3. We will use these ONLY for testing the research pipeline
+# 4. NO actual emails will be sent (dry-run mode)
+# 5. For production, Florian should use his own lead sources
+# ========================================
+
+# Pipeline Test Command:
+# ./pipeline.sh contact@altipa.fr --company "Altipa" --niche "Packaging" --dry-run

@@ -1,0 +1,13 @@
+{
+  "name": "@estudio/openclaw-whatsapp-send",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "WhatsApp outbound messaging API for OpenClaw",
+  "openclaw": {
+    "extensions": ["./index.js"]
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "exports": "./index.js"
+}

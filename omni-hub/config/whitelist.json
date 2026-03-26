@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-03-25T23:09:00Z",
+  "god_mode_numbers": [
+    {
+      "number": "+PENDING_FROM_E",
+      "name": "E (God-Mode)",
+      "access": "full",
+      "can_approve_client_requests": true,
+      "can_spawn_agents": true,
+      "can_view_all_clients": true
+    }
+  ],
+  "whitelisted_clients": [
+    {
+      "number": "+PENDING_FLORIAN_NUMBER",
+      "name": "Florian (Inerys)",
+      "agent_workspace": "inerys-agent",
+      "agent_path": "~/.openclaw/workspace/agents/inerys-agent/",
+      "access": "sandboxed",
+      "allowed_commands": [
+        "add_lead",
+        "send_draft",
+        "tweak_tone",
+        "status",
+        "help"
+      ]
+    }
+  ],
+  "blocked_numbers": [],
+  "security_rules": {
+    "block_unknown": true,
+    "auto_block_threshold": 3,
+    "allow_client_registration": false
+  },
+  "routing": {
+    "default_action": "block",
+    "fallback_message": "Unauthorized access. Please contact system administrator."
+  }
+}

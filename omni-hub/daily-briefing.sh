@@ -90,8 +90,8 @@ DISK_PERCENT=$(df -h /home | awk 'NR==2 {print $5}' | sed 's/%//')
 ERROR_COUNT=0
 WARNING_COUNT=0
 if [[ -d "${HOME}/.openclaw/logs" ]]; then
-    ERROR_COUNT=$(grep -r "ERROR" "${HOME}/.openclaw/logs" 2>/dev/null | wc -l)
-    WARNING_COUNT=$(grep -r "WARNING" "${HOME}/.openclaw/logs" 2>/dev/null | wc -l)
+    ERROR_COUNT=$(grep -r "ERROR" "${HOME}/.openclaw/logs" 2>/dev/null | wc -l || true)
+    WARNING_COUNT=$(grep -r "WARNING" "${HOME}/.openclaw/logs" 2>/dev/null | wc -l || true)
 fi
 
 # Ensure counts are integers
@@ -110,7 +110,7 @@ if [[ -f "${PIPELINE_LOG}" ]]; then
     LAST_RUN_HOURS_AGO=$(awk -v d="$LAST_RUN" 'BEGIN {print "N/A"}')
 
     # Check for errors
-    PIPELINE_ERRORS=$(grep -i "error" "${PIPELINE_LOG}" 2>/dev/null | tail -5 | wc -l || echo "0")
+    PIPELINE_ERRORS=$(grep -i "error" "${PIPELINE_LOG}" 2>/dev/null | tail -5 | wc -l || echo "0") || true
 
     if [[ ${PIPELINE_ERRORS} -eq 0 ]]; then
         PIPELINE_STATUS="✅ OPERATIONAL"
@@ -121,7 +121,7 @@ if [[ -f "${PIPELINE_LOG}" ]]; then
     fi
 
     # Count leads processed today
-    LEADS_TODAY=$(grep "$(date +%Y-%m-%d)" "${PIPELINE_LOG}" 2>/dev/null | grep -i "lead" | wc -l || echo "0")
+    LEADS_TODAY=$(grep "$(date +%Y-%m-%d)" "${PIPELINE_LOG}" 2>/dev/null | grep -i "lead" | wc -l || echo "0") || true
 else
     PIPELINE_STATUS="⚠️ NO LOGS FOUND"
     LAST_RUN="N/A"
@@ -141,7 +141,7 @@ TASKS_BLOCKED="0"
 if command -v clawteam &> /dev/null; then
     TASKS_COMPLETED=$(clawteam task list omni-hub --owner omni-warren 2>/dev/null | grep -c "completed" || echo "0")
     TASKS_IN_PROGRESS=$(clawteam task list omni-hub --owner omni-warren 2>/dev/null | grep -c "in_progress" || echo "0")
-    TASKS_BLOCKED=$(clawteam task list omni-hub --owner omni-warren 2>/dev/null | grep -c "blocked" || echo "0")
+    TASKS_BLOCKED=$(clawteam task list omni-hub --owner omni-warren 2>/dev/null | grep -c "blocked" || echo "0") || true
 fi
 
 # Ensure counts are integers

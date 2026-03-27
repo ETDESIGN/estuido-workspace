@@ -156,68 +156,6 @@ app.get('/sent', (req, res) => {
 
 // Start server
 
-// Add this endpoint after the /send-image endpoint
-
-// Send audio endpoint  
-app.post('/send-audio', async (req, res) => {
-    const { target, audioPath } = req.body;
-    
-    if (!target || !audioPath) {
-        return res.status(400).json({
-            error: 'Missing required fields: target, audioPath'
-        });
-    }
-    
-    if (!isReady) {
-        return res.status(503).json({
-            error: 'WhatsApp client not ready',
-            status: 'initializing'
-        });
-    }
-    
-    try {
-        // Check if audio file exists
-        if (!fs.existsSync(audioPath)) {
-            return res.status(404).json({
-                error: 'Audio file not found',
-                audioPath
-            });
-        }
-        
-        // Format number
-        let chatId = target;
-        if (!chatId.includes('@')) {
-            chatId = chatId.replace(/\D/g, '') + '@c.us';
-        }
-        
-        // Create MessageMedia from audio file
-        const MessageMedia = pkg.MessageMedia;
-        const media = MessageMedia.fromFilePath(audioPath);
-        
-        // Send audio message
-        await whatsappClient.sendMessage(chatId, media);
-        
-        // Log
-        logSent(target, `[AUDIO] ${audioPath}`, 'api-audio');
-        
-        console.log(`✅ Sent audio to ${target}: ${audioPath}`);
-        
-        res.json({
-            success: true,
-            target,
-            audioPath
-        });
-        
-    } catch (error) {
-        console.error('❌ Send audio failed:', error.message);
-        res.status(500).json({
-            error: error.message,
-            target,
-            audioPath
-        });
-    }
-});
-
 // Send image endpoint
 app.post('/send-image', async (req, res) => {
     const { target, imagePath, caption } = req.body;

@@ -1,0 +1,62 @@
+{
+  "id": "supplier_XXX",
+  "name": "Factory Name (Chinese + English)",
+  "name_cn": "工厂名称",
+  "name_en": "Factory Name",
+  "location": {
+    "city": "Dongguan",
+    "district": "Changping",
+    "address": "Full address in Chinese",
+    "coordinates": {
+      "lat": 23.0207,
+      "lng": 113.7518
+    }
+  },
+  "specialties": ["CNC", "Aluminum", "Plastic"],
+  "capabilities": {
+    "cnc": true,
+    "injection_molding": false,
+    "pcb": false,
+    "materials": ["Aluminum 6061", "Aluminum 7075", "ABS", "Polycarbonate"],
+    "max_part_size": "500mm x 500mm",
+    "tolerance": "±0.05mm"
+  },
+  "certifications": ["ISO 9001:2015"],
+  "verification": {
+    "business_license": "License number",
+    "license_verified": true,
+    "factory_verified": true,
+    "trading_company": false
+  },
+  "platforms": {
+    "1688": {
+      "url": "https://...",
+      "chengthong": true,
+      "powerful_merchant": true,
+      "worker_count": "51-100",
+      "years_active": 5,
+      "response_rate": 98,
+      "rating": 4.5
+    }
+  },
+  "contact": {
+    "wechat": "WeChat ID",
+    "email": "email@factory.com",
+    "phone": "+86-XXX-XXXX-XXXX",
+    "1688_chat": "available"
+  },
+  "pricing": {
+    "currency": "USD",
+    "moq": 100,
+    "sample_cost": 50,
+    "tooling_cost": "varies"
+  },
+  "performance": {
+    "on_time_delivery": 95,
+    "quality_score": 4.3,
+    "responsiveness": "fast"
+  },
+  "notes": "Additional observations",
+  "last_updated": "2026-03-27",
+  "status": "active"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "medical-scan-april8-2025",
+  "type": "trigger",
+  "title": "Medical scan appointment",
+  "scheduledFor": "2026-04-08T14:00:00",
+  "labels": ["health", "medical", "appointment"],
+  "status": "active"
+}

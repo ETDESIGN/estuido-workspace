@@ -1,6 +1,6 @@
 # Learnings & Improvements
 
-**Last Updated:** 2026-03-22 02:09 HKT
+**Last Updated:** 2026-03-27 17:55 HKT
 
 ---
 
@@ -320,6 +320,60 @@ Add verification step to checklist:
 
 ### Promoted
 - **SOUL.md** → Core Truths (already present: "Verify before claiming")
+
+---
+
+## [LRN-20260327-001] cto_activity_gap_pipeline_ownership
+
+**Logged**: 2026-03-27T17:55:00Z
+**Priority**: high
+**Status**: pending
+**Area**: workflow
+
+### Summary
+No CTO activity for 6 days (Mar 21–27) indicates lack of continuous pipeline ownership
+
+### Details
+**Timeline:**
+- Mar 21, 21:30: Completed Feature 4, marked READY_FOR_QA
+- Mar 22–27: No CTO activity or tasks queued
+- Mar 27, 17:55: EOD review triggered, gap identified
+
+**Root cause:** Task handoff without next-step planning
+- Focused on QA completion (task done → stop)
+- No proactive task queue management
+- Relied on external direction instead of self-continuity
+- Treated "READY_FOR_QA" as endpoint, not milestone
+
+**Impact:**
+- Architecture momentum lost
+- No feature progression (Feature 5+)
+- Development velocity dropped to zero
+- CTO role passive, not driving
+
+### Suggested Action
+Implement continuous pipeline ownership protocol:
+1. **After marking READY_FOR_QA:** Immediately queue next task
+2. **Maintain 3-task lookahead:** (design → implement → verify)
+3. **Daily self-review checklist:**
+   - What's blocking the next feature?
+   - Are tasks queued for the next 3 days?
+   - What dependencies need resolution?
+4. **Automated reminder:** 09:00 cron: "CTO: Check pipeline health, queue next task if empty"
+
+### Metadata
+- Source: retrospective
+- Related Tasks: Feature 4 (complete), Feature 5+ (not started)
+- Tags: cto, pipeline, ownership, continuity, gap
+- First-Seen: 2026-03-27T17:55:00Z
+- Last-Seen: 2026-03-27T17:55:00Z
+- Gap-Duration: 6 days
+- Pattern-Key: cto.maintain_pipeline_continuity
+- Recurrence-Count: 1 (first gap detection)
+
+### Promoted
+- **CTO.md** → Add "Pipeline Ownership" section to responsibilities
+- **SOUL.md** → Core Truth: "CTO role requires continuous pipeline ownership, not just individual task completion"
 
 ---
 

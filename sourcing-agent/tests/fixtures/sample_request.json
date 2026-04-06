@@ -1,0 +1,14 @@
+{
+  "id": "job_fixture_001",
+  "project": "Fixture Aluminum Bracket",
+  "customer": "Fixture Customer Inc.",
+  "date": "2026-03-31",
+  "status": "in_progress",
+  "priority": "high",
+  "product_type": "CNC Machining",
+  "material": "Aluminum 6061-T6",
+  "quantity": 500,
+  "tolerance": "±0.05mm",
+  "timeline": "2026-04-20",
+  "description": "Custom aluminum bracket for fixture testing"
+}

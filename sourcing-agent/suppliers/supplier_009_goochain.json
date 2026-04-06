@@ -1,0 +1,84 @@
+{
+  "id": "supplier_goochain",
+  "name": "Goochain Technology",
+  "name_cn": "深圳市固川智能技术有限公司",
+  "name_en": "Shenzhen Goochain Technology Co., Ltd.",
+  "location": {
+    "city": "Shenzhen",
+    "province": "Guangdong"
+  },
+  "specialties": [
+    "Pogo Pin Charging Docks",
+    "Charging Stations",
+    "POS Systems",
+    "Tablet Docks"
+  ],
+  "capabilities": {
+    "battery_assembly": false,
+    "pcb_assembly": true,
+    "plastic_molding": true,
+    "cnc": false,
+    "final_assembly": true,
+    "materials": [
+      "Pogo Pin Connectors",
+      "PCB",
+      "ABS Plastic"
+    ],
+    "certifications": [
+      "CE",
+      "FCC",
+      "RoHS"
+    ],
+    "experience_years": 10
+  },
+  "products": {
+    "pogo_pin_docks": {
+      "custom_design": true,
+      "tablet_docks": true,
+      "pos_docks": true,
+      "magnetic_connectors": true
+    },
+    "specializes_in": "Pogo pin charging solutions for consumer electronics, medical devices, industrial applications"
+  },
+  "platforms": {
+    "website": "https://www.goochainpos.com",
+    "alibaba": false,
+    "1688": {
+      "rating": 0,
+      "response_rate": 0,
+      "years_active": 0
+    }
+  },
+  "contact": {
+    "sales_email": "sales@cngoochain.com",
+    "website": "https://www.goochainpos.com",
+    "address": "Shenzhen, Guangdong, China"
+  },
+  "performance": {
+    "on_time_delivery": 95,
+    "quality_score": 4.8,
+    "responsiveness": "fast",
+    "english_level": "excellent"
+  },
+  "pricing": {
+    "moq": 100,
+    "sample_cost": 50,
+    "currency": "USD"
+  },
+  "rfq_status": {
+    "sent": false,
+    "response_status": "pending",
+    "project": "Spider"
+  },
+  "status": "candidate",
+  "favorite": false,
+  "notes": "Specializes in pogo pin charging docks. Can build custom docking solutions. Has experience with POS tablets and consumer electronics.",
+  "last_updated": "2026-03-28",
+  "source": "web_search",
+  "match_score": 85,
+  "certifications": [
+    "CE",
+    "FCC",
+    "RoHS"
+  ]
+}

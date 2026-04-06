@@ -24,6 +24,10 @@
     "generate-excel": {
       "version": "1.0.0",
       "installedAt": 1773868026077
+    },
+    "skill-security-auditor": {
+      "version": "1.0.1",
+      "installedAt": 1774985820431
     }
   }
 }

@@ -80,7 +80,7 @@ try:
     import subprocess
     response = f"I heard: {text}"
     print(f"\n🔊 {response}")
-    subprocess.run(['spd-say', response])
+    subprocess.run(['edge-say', response])
     
 except sr.UnknownValueError:
     print("\n⚠️  Audio detected but unclear")

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Compare Quotes | Midnight Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error-container": "#93000a",
+              "outline": "#8c909f",
+              "primary-fixed-dim": "#adc6ff",
+              "surface-dim": "#0b1326",
+              "on-primary": "#002e6a",
+              "on-tertiary-fixed": "#2a1700",
+              "secondary-fixed": "#6ffbbe",
+              "on-tertiary-fixed-variant": "#653e00",
+              "surface-variant": "#2d3449",
+              "surface-container-low": "#131b2e",
+              "primary-container": "#4d8eff",
+              "on-secondary": "#003824",
+              "secondary-fixed-dim": "#4edea3",
+              "on-primary-fixed": "#001a42",
+              "on-surface-variant": "#c2c6d6",
+              "inverse-surface": "#dae2fd",
+              "error": "#ffb4ab",
+              "secondary": "#4edea3",
+              "surface-container": "#171f33",
+              "on-error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#005236",
+              "surface-tint": "#adc6ff",
+              "surface-bright": "#31394d",
+              "secondary-container": "#00a572",
+              "on-tertiary-container": "#3e2400",
+              "on-error": "#690005",
+              "tertiary-fixed-dim": "#ffb95f",
+              "surface-container-lowest": "#060e20",
+              "on-primary-container": "#00285d",
+              "on-background": "#dae2fd",
+              "on-secondary-fixed": "#002113",
+              "primary-fixed": "#d8e2ff",
+              "surface": "#0b1326",
+              "on-surface": "#dae2fd",
+              "tertiary-fixed": "#ffddb8",
+              "inverse-on-surface": "#283044",
+              "outline-variant": "#424754",
+              "on-primary-fixed-variant": "#004395",
+              "surface-container-highest": "#2d3449",
+              "on-secondary-container": "#00311f",
+              "background": "#0b1326",
+              "tertiary-container": "#ca8100",
+              "inverse-primary": "#005ac2",
+              "primary": "#adc6ff",
+              "surface-container-high": "#222a3d",
+              "tertiary": "#ffb95f",
+              "on-tertiary": "#472a00"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-slate-950/60 backdrop-blur-xl shadow-2xl shadow-slate-950/50">
+<div class="text-xl font-bold text-slate-50 flex items-center gap-2">
+<div class="w-8 h-8 bg-surface-container-high rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">factory</span>
+</div>
+<span>Midnight Architect</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-['Inter'] tracking-tight" href="#">Features</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-['Inter'] tracking-tight" href="#">How it Works</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 hover:text-slate-200 transition-colors font-['Inter'] px-4 py-2">Sign In</button>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed rounded-full px-6 py-2 font-semibold transition-all hover:scale-105 active:scale-95">Get Started</button>
+</div>
+</nav>
+<!-- Sidebar (Hidden on mobile) -->
+<aside class="fixed left-0 top-0 h-full hidden lg:flex flex-col p-6 space-y-8 bg-[#131b2e] w-64 z-40">
+<div class="mt-16 mb-4">
+<div class="text-lg font-black text-slate-100 mb-1">Architect Workspace</div>
+<div class="text-[0.6875rem] tracking-[0.05em] uppercase text-on-surface-variant">Sourcing Operations</div>
+</div>
+<nav class="flex flex-col space-y-2">
+<a class="text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-800 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="label-sm tracking-[0.05em] uppercase">Dashboard</span>
+</a>
+<a class="bg-blue-500/10 text-blue-200 rounded-full px-4 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined">factory</span>
+<span class="label-sm tracking-[0.05em] uppercase">My Requests</span>
+</a>
+<a class="text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-800 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="label-sm tracking-[0.05em] uppercase">Profile</span>
+</a>
+</nav>
+<div class="pt-8 mt-auto">
+<button class="w-full bg-surface-container-highest text-primary-fixed-dim rounded-full py-3 font-semibold flex items-center justify-center gap-2 hover:translate-x-1 duration-200">
+<span class="material-symbols-outlined">add</span>
+                New Request
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:ml-64 pt-28 pb-32 px-6 md:px-12 max-w-[1600px] mx-auto">
+<!-- Header Section -->
+<header class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-display-md text-4xl md:text-5xl font-bold tracking-tight text-on-surface mb-4">Compare Quotes</h1>
+<div class="flex items-center gap-3">
+<span class="bg-surface-container-high p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">water_bottle</span>
+</span>
+<p class="text-headline-sm text-on-surface-variant text-lg">Custom Stainless Steel Water Bottles, <span class="text-primary font-semibold">3 quotes received</span></p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-low text-on-surface-variant px-5 py-2 rounded-full border border-outline-variant/20 flex items-center gap-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm">share</span>
+                        Share
+                    </button>
+<button class="bg-surface-container-low text-on-surface-variant px-5 py-2 rounded-full border border-outline-variant/20 flex items-center gap-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm">history</span>
+                        Audit Log
+                    </button>
+</div>
+</div>
+</header>
+<!-- Bento Comparison Grid -->
+<div class="bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant/10 shadow-2xl">
+<div class="overflow-x-auto no-scrollbar">
+<table class="w-full text-left border-collapse min-w-[1000px]">
+<thead>
+<tr class="bg-surface-container-highest/50">
+<th class="p-8 text-label-sm uppercase tracking-[0.1em] text-on-surface-variant font-bold w-1/4">Attributes</th>
+<th class="p-8">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-lg font-bold text-on-surface">Shenzhen BestMfg Co.</span>
+<span class="bg-secondary/10 text-secondary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Verified</span>
+</div>
+<span class="text-xs text-on-surface-variant">Electronics &amp; Hardware Specialist</span>
+</div>
+</th>
+<th class="p-8">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-lg font-bold text-on-surface">Dongguan QualityParts Ltd.</span>
+</div>
+<span class="text-xs text-on-surface-variant">High-Volume Industrial Parts</span>
+</div>
+</th>
+<th class="p-8">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-lg font-bold text-on-surface">Guangzhou Premium Mfg</span>
+</div>
+<span class="text-xs text-on-surface-variant">Eco-Friendly Production Hub</span>
+</div>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Unit Price -->
+<tr class="hover:bg-surface-container-highest/20 transition-colors">
+<td class="p-8 text-on-surface-variant font-medium">Unit Price</td>
+<td class="p-8">
+<div class="flex items-center gap-3">
+<span class="text-xl font-bold bg-secondary/20 text-secondary-fixed-dim px-3 py-1 rounded-md">$0.25</span>
+<span class="bg-secondary text-on-secondary px-2 py-0.5 rounded text-[10px] font-black tracking-tighter uppercase">Best</span>
+</div>
+</td>
+<td class="p-8 text-xl font-bold text-on-surface">$0.29</td>
+<td class="p-8 text-xl font-bold text-on-surface">$0.27</td>
+</tr>
+<!-- MOQ -->
+<tr class="bg-surface-container/30 hover:bg-surface-container-highest/20 transition-colors">
+<td class="p-8 text-on-surface-variant font-medium">MOQ</td>
+<td class="p-8 text-on-surface">3,000 pcs</td>
+<td class="p-8">
+<div class="flex items-center gap-3">
+<span class="text-on-surface font-semibold bg-secondary/20 px-3 py-1 rounded-md">2,000 pcs</span>
+<span class="bg-secondary/10 text-secondary text-[10px] px-2 py-0.5 rounded font-bold uppercase">Lowest</span>
+</div>
+</td>
+<td class="p-8 text-on-surface">5,000 pcs</td>
+</tr>
+<!-- Lead Time -->
+<tr class="hover:bg-surface-container-highest/20 transition-colors">
+<td class="p-8 text-on-surface-variant font-medium">Lead Time</td>
+<td class="p-8 text-on-surface">15 days</td>
+<td class="p-8 text-on-surface">20 days</td>
+<td class="p-8">
+<div class="flex items-center gap-3">
+<span class="text-on-surface font-semibold bg-secondary/20 px-3 py-1 rounded-md">12 days</span>
+<span class="bg-secondary/10 text-secondary text-[10px] px-2 py-0.5 rounded font-bold uppercase">Fastest</span>
+</div>
+</td>
+</tr>
+<!-- Payment Terms -->
+<tr class="bg-surface-container/30 hover:bg-surface-container-highest/20 transition-colors">
+<td class="p-8 text-on-surface-variant font-medium">Payment Terms</td>
+<td class="p-8 text-on-surface">TT 30/70</td>
+<td class="p-8 text-on-surface">Net 30</td>
+<td class="p-8 text-on-surface">LC at sight</td>
+</tr>
+<!-- Shipping Terms -->
+<tr class="hover:bg-surface-container-highest/20 transition-colors">
+<td class="p-8 text-on-surface-variant font-medium">Shipping Terms</td>
+<td class="p-8 text-on-surface">FOB Shenzhen</td>
+<td class="p-8 text-on-surface">EXW Dongguan</td>
+<td class="p-8 text-on-surface">FOB Guangzhou</td>
+</tr>
+<!-- Tooling Cost -->
+<tr class="bg-surface-container/30 hover:bg-surface-container-highest/20 transition-colors">
+<td class="p-8 text-on-surface-variant font-medium">Tooling Cost</td>
+<td class="p-8 text-on-surface">$3,000</td>
+<td class="p-8">
+<div class="flex items-center gap-3">
+<span class="text-on-surface font-semibold bg-secondary/20 px-3 py-1 rounded-md">$2,500</span>
+<span class="bg-secondary text-on-secondary px-2 py-0.5 rounded text-[10px] font-black uppercase">Best</span>
+</div>
+</td>
+<td class="p-8 text-on-surface">$4,000</td>
+</tr>
+<!-- Valid Until -->
+<tr class="hover:bg-surface-container-highest/20 transition-colors">
+<td class="p-8 text-on-surface-variant font-medium">Valid Until</td>
+<td class="p-8 text-on-surface">Apr 15</td>
+<td class="p-8 text-on-surface">Apr 20</td>
+<td class="p-8 text-on-surface">Apr 10</td>
+</tr>
+<!-- Total Cost -->
+<tr class="bg-surface-container-highest/10 hover:bg-surface-container-highest/20 transition-colors">
+<td class="p-8 text-on-surface-variant font-bold border-t border-outline-variant/10">Total Cost at 5,000 pcs</td>
+<td class="p-8 text-2xl font-black text-on-surface border-t border-outline-variant/10">$4,250</td>
+<td class="p-8 text-2xl font-black text-primary border-t border-outline-variant/10">$3,950</td>
+<td class="p-8 text-2xl font-black text-on-surface border-t border-outline-variant/10">$5,350</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Secondary Meta Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+<div class="bg-surface-container p-6 rounded-lg border border-outline-variant/10">
+<h4 class="text-label-sm uppercase tracking-widest text-on-surface-variant mb-4 font-bold">Supply Chain Risk</h4>
+<div class="flex items-center gap-4">
+<div class="h-2 flex-grow bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-4/5"></div>
+</div>
+<span class="text-secondary font-bold">Low</span>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-lg border border-outline-variant/10">
+<h4 class="text-label-sm uppercase tracking-widest text-on-surface-variant mb-4 font-bold">Average Quality Score</h4>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-on-surface-variant">star_half</span>
+<span class="ml-2 font-bold">4.8/5.0</span>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-lg border border-outline-variant/10">
+<h4 class="text-label-sm uppercase tracking-widest text-on-surface-variant mb-4 font-bold">Recent Logistics Delay</h4>
+<div class="flex items-center gap-3 text-error">
+<span class="material-symbols-outlined">warning</span>
+<span class="font-bold">+1.2 Days (Shenzhen Port)</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar (Frosted Glass) -->
+<div class="fixed bottom-0 w-full z-50 p-6 md:px-12 pointer-events-none">
+<div class="max-w-[1400px] mx-auto bg-surface-bright/60 backdrop-blur-2xl rounded-full p-4 px-8 border border-outline-variant/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4 pointer-events-auto">
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex -space-x-3">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img alt="Supplier 1" data-alt="close up logo of a manufacturing company with industrial blue and grey shapes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5eYDwmv5UbLUCQxKOuV5epKCKz0j8_Jf6i9vf7Uu73rMYjIeftseXztr6j4AAY_kTfIRnHawFrrtbBCh5HfS_M_89sZ4JdcA8BjB8skcsrZQoopWK29yJTxXenv8hUNIOCfp9G526sO30QPHsdfc8bQFddGnF3gi6392diuWjnkUa9YhE7673ZvAQN5LgK5Y4TN88N0h9gEPBrMu_KWbjNsi5Hb2OyBYEtyRivR5c5O4YkXSBRVgKWjEt4t6fFYD_gTOImPxOnEGJ"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img alt="Supplier 2" data-alt="minimalist factory icon logo with sharp geometric lines on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZp8iENbl1xf8QzwEBfSc1j00zLjScmLUnETisrVyoYm4z2irBNkgalzirJySvY746kTfxP7rexMQZUagWrJUPEoeoSNl9UkETSg-WiDvNeZJBSIC-EA6g_rTdckm_-sCMLWQMs8hu1a122GzXsnoeJEeNtAKa3PSKjEen-T2yspHIBornV3p5L1AiL9wAEFS07co3CBNyHZ01ji2vOLdBEZCBiVUveUE4jtyNADmTX0Re5PoWZ4x9mUFbQK8NwirTEjo4K8FZCUZy"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img alt="Supplier 3" data-alt="modern corporate emblem for a logistics company with green and white accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdvo9btqchcI7ovkLHz3akKcNzKXDYa9hkTSqeF0TX7A54AUqjAxxuSRBzWbIxNQW4Sy_GDz_DG4CYHvyl3Di-FnkIE8KnWfO3ThR0oyX-AezWuIb54JAjOzk9PY7zbIQeV_wxaVbFD_Swo-I8mxQFmeVWWIdr1HP_rOMi6q5u1dG9WJfPIjUv9LLHt9IB1DtaNb0majkZrWuHo_fIZgtJ4AtCziOf41UCUOYabQKHFugZiP7bJu9yY0Auws5yHX9U84vsKVWRyfjW"/>
+</div>
+</div>
+<span class="text-on-surface font-medium hidden lg:inline">3 Suppliers Compared</span>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto">
+<button class="flex-1 md:flex-none border border-outline-variant/40 text-on-surface px-6 py-2.5 rounded-full font-semibold hover:bg-surface-container transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">picture_as_pdf</span>
+                    Download PDF
+                </button>
+<button class="flex-1 md:flex-none border border-outline-variant/40 text-on-surface px-6 py-2.5 rounded-full font-semibold hover:bg-surface-container transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">forum</span>
+                    Request Negotiation
+                </button>
+<div class="flex-1 md:flex-none relative group">
+<select class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed border-none rounded-full px-8 py-2.5 font-bold cursor-pointer appearance-none pr-12 focus:ring-2 focus:ring-primary/40">
+<option>Select Supplier</option>
+<option>Shenzhen BestMfg Co.</option>
+<option>Dongguan QualityParts Ltd.</option>
+<option>Guangzhou Premium Mfg</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-primary-fixed pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-800/50 px-8 py-12 flex flex-col md:flex-row justify-between items-center bg-[#0b1326] mt-24 gap-6">
+<div class="text-sm font-bold text-slate-300">Midnight Architect Sourcing</div>
+<div class="text-xs font-['Inter'] text-slate-500 text-center md:text-left">
+            © 2024 Midnight Architect Sourcing. All rights reserved.
+        </div>
+<div class="flex gap-8">
+<a class="text-slate-500 hover:text-blue-300 transition-colors text-xs font-['Inter']" href="#">Privacy</a>
+<a class="text-slate-500 hover:text-blue-300 transition-colors text-xs font-['Inter']" href="#">Terms</a>
+<a class="text-slate-500 hover:text-blue-300 transition-colors text-xs font-['Inter']" href="#">Support</a>
+</div>
+</footer>
+</body></html>

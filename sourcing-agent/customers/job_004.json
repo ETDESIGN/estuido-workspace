@@ -1,0 +1,16 @@
+{
+  "id": "job_004",
+  "project": "Battery Doctor Sharing Device",
+  "customer": "Etia",
+  "date": "2026-03-28",
+  "status": "in_progress",
+  "priority": "high",
+  "product_type": "Other",
+  "material": "Lithium-ion 18650 cells, Plastic casing",
+  "quantity": 1000,
+  "tolerance": "±0.2mm",
+  "timeline": "2026-05-15",
+  "description": "Portable battery sharing station for Battery Doctor app. Needs: 18650 lithium-ion battery compartment (4-cell), sharing mechanism (lock/unlock), USB-C charging ports, LED indicators, plastic housing (ABS or similar), QR code mount, smartphone bracket. Target cost: < $25 per unit. Looking for suppliers in Dongguan with experience in consumer electronics assembly and battery product manufacturing.",
+  "special_requirements": "Must have battery safety certification (UN38.3, IEC 62133). Experience with shared economy products preferred.",
+  "drawing_file": ""
+}

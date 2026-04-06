@@ -1,0 +1,272 @@
+RFQ - PROJECT SPIDER
+Battery Charging Dock System
+==================================================
+
+Date: March 28, 2026
+RFQ Number: RFQ-2026-SPIDER-001
+Contact: Etia
+
+
+==================================================
+1. PROJECT OVERVIEW
+==================================================
+
+Project Name: Spider - Battery Charging Dock System
+Product Type: Battery Sharing/Charging Station
+Application: Shopping Mall Deployment
+
+Business Model:
+- FREE charging service for shopping mall customers
+- Shopping mall pays company directly (lease/rental)
+- No payment system required
+
+==================================================
+2. PRODUCT SPECIFICATIONS
+==================================================
+
+2.1 DOCK (Charging Station)
+--------------------------------------------------
+
+Dimensions:
+- Width: 135mm
+- Height: 200mm
+- Depth: 200mm
+
+Capacity:
+- 10-12 batteries per dock (flexible configuration)
+- Spring-loaded insertion system
+
+Key Features:
+• Pogo pin charging system (12 positions)
+• Reinforced mount design
+• Battery presence detection switches
+• Sound emitter when battery inserted
+• LED indicators for each slot
+• Metal security latches (prevents forced removal)
+• UART communication interface
+
+Power:
+- AC adapter input
+- Distributes power to all battery slots
+- Charging time: 1-1.5 hours per battery
+
+Materials:
+- Housing: ABS plastic
+- Screen printing: 1-2 colors
+- Metal latches: Stainless steel
+
+
+2.2 BATTERY (Removable Power Pack)
+--------------------------------------------------
+
+Battery Specifications:
+- Capacity: 5,000 mAh (±2000)
+- Type: Lithium-ion (18650 cells, 4-cell)
+- Charging: Via pogo pins ONLY (no USB charging port)
+
+Output:
+- 3 Integrated Cables:
+  * Micro USB
+  * USB-C
+  * Lightning
+- Voltage: 5V
+- Current: 1A (no fast charging)
+- Always ON (no power button)
+
+Features:
+• Unique serial number per battery
+• LED indicator (battery level)
+• Metal latch mechanism
+• Redesigned cable channels
+
+
+2.3 COMMUNICATION PROTOCOL
+--------------------------------------------------
+
+UART Interface Requirements:
+
+Data to retrieve from each battery:
+1. Serial number (unique ID)
+2. Battery level (%)
+3. Number of charge cycles
+4. Battery release events
+5. Battery presence status
+
+Interface: UART to computer system
+
+
+==================================================
+3. PRODUCTION REQUIREMENTS
+==================================================
+
+Annual Volume:
+- 80 docks per year
+- 1,200 batteries per year
+
+Breakdown:
+Phase              | Docks  | Batteries
+-------------------|--------|----------
+Prototype          | 10     | 120
+Pilot Production   | 20     | 240
+Mass Production    | 80/year| 1,200/year
+
+Target Timeline:
+- First prototype: April 15, 2026
+- Pilot production: May 15, 2026
+- Mass production: June 15, 2026
+
+
+==================================================
+4. TECHNICAL REQUIREMENTS
+==================================================
+
+Required Certifications:
+• UL 2054 (battery safety)
+• IEC 62133 (transport safety)
+• UN38.3 (shipping)
+• CE (Europe)
+• FCC (USA)
+
+Quality Requirements:
+- ISO 9001 certification preferred
+- Battery testing procedures
+- Safety testing protocols
+
+
+==================================================
+5. ISSUES TO FIX (from current product)
+==================================================
+
+Issue 1: Pogo Pin Contact
+- Current: Poor contact, requires pressing
+- Required: Reinforced pogo pin mount
+
+Issue 2: Security Latches
+- Current: Plastic latches (can be forced)
+- Required: Metal latches (prevent forced removal)
+
+Issue 3: Cable Management
+- Current: Cables block battery insertion
+- Required: Larger cable channels
+
+Issue 4: Spring Tension
+- Current: Incorrect tension
+- Required: Proper tension (battery stays when horizontal)
+
+
+==================================================
+6. QUOTATION REQUIREMENTS
+==================================================
+
+Please provide the following information:
+
+6.1 Pricing
+-----------
+- Unit price: Dock (FOB Shenzhen/Dongguan)
+- Unit price: Battery (FOB Shenzhen/Dongguan)
+- Bundle pricing: Dock + 12 batteries (optional)
+- Tooling cost (if applicable)
+- MOQ requirements
+
+6.2 Timeline
+-----------
+- Prototype lead time
+- Pilot production lead time
+- Mass production lead time
+
+6.3 Company Profile
+-------------------
+- Year established
+- Employee count
+- Production capacity (docks/month, batteries/month)
+- Major clients/brands
+- Experience with similar systems
+
+6.4 Technical Capabilities
+---------------------------
+- Battery cell brand and model
+- PCB design capabilities
+- Certificates held
+- Quality control procedures
+- Testing procedures
+
+6.5 Design Approach
+-------------------
+- How will you fix the pogo pin contact issue?
+- Metal latch design approach?
+- Cable channel improvements?
+- Spring tension solution?
+
+
+==================================================
+7. EVALUATION CRITERIA
+==================================================
+
+Quotations will be evaluated on:
+- Price (25%)
+- Quality & Certifications (30%)
+- System Integration Capability (20%)
+- Lead Time (15%)
+- Communication (10%)
+
+
+==================================================
+8. PAYMENT TERMS
+==================================================
+
+- Prototype: 100% T/T in advance
+- Pilot Production: 50% deposit, 50% before shipment
+- Mass Production: 30% deposit, 70% before shipment
+
+
+==================================================
+9. RESPONSE INFORMATION
+==================================================
+
+Response Deadline: March 31, 2026
+
+Please submit quotation to:
+
+Contact: Etia
+Project: Spider (Battery Charging Dock System)
+Email: [your email]
+WeChat: [your wechat]
+Phone: [+86-XXX-XXXX-XXXX]
+
+
+==================================================
+10. ADDITIONAL NOTES
+==================================================
+
+Reference:
+- Meeting minutes: March 16, 2026
+- Current supplier: Winnsenn (EOL product - need replacement)
+- Current dock dimensions: 200×200×135mm
+- Current battery: 5,000 mAh
+
+Critical Requirements:
+- All safety certifications (UL, IEC 62133, UN38.3)
+- Export certifications (CE, FCC)
+- Metal security latches (not plastic)
+- Reinforced pogo pin mounts
+- Complete UART data retrieval (all 5 points)
+
+
+==================================================
+
+Thank you for your quotation. We look forward to your proposal.
+
+Best regards,
+
+Etia
+Project Spider - Battery Charging Dock System
+
+
+==================================================
+END OF RFQ
+==================================================
+
+
+Document Version: 1.0
+Date Created: March 28, 2026
+Page 1 of 1

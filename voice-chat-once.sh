@@ -4,7 +4,7 @@
 
 SCRIPT_DIR="/home/e/.openclaw/workspace"
 VOICE_INPUT="$SCRIPT_DIR/voice-simple.sh"
-VOICE_OUTPUT="spd-say"
+VOICE_OUTPUT="edge-say"
 
 echo "╔════════════════════════════════════════╗"
 echo "║   OpenClaw Voice Chat (One-Turn)      ║"

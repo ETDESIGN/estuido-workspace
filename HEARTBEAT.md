@@ -1,80 +1,61 @@
-# HEARTBEAT.md
+# HEARTBEAT.md — Current State (2026-04-06 09:23 HKT)
 
-## ⚠️ CURRENT MODE: ULTRA LOW COST
-- Default model: `qwen/qwen3-4b:free`
-- KiloCode CLI for all coding
-- Monitor for free tier limits
+## ⚠️ CORE RULES
+1. I am **coordinator**, NOT coder. All coding delegated to CTO team.
+2. Read this file FIRST before any action. Single source of truth.
+3. Email restricted to approved recipients only. Deploy to Vercel: always.
 
-# Periodic Checks (every ~2 hours while E is asleep/away)
+## Active Agents (12)
+| Agent | Role | Model | Status |
+|-------|------|-------|--------|
+| main | Coordinator | zai/glm-5.1 | ✅ Active |
+| cto | Engineering Manager | zai/glm-5.1 | ✅ Active |
+| frontend-coder | Frontend | zai/glm-5.1 | ✅ Ready |
+| backend-coder | Backend | zai/glm-5.1 | ✅ Ready |
+| qa | QA/Testing | zai/glm-5.1 | ✅ Ready |
+| planner | PM | zai/glm-5-turbo | ✅ Ready |
+| deployer | Deploy | zai/glm-5-turbo | ✅ Ready |
+| warren | Ops/HR | zai/glm-5-turbo | ✅ Ready |
+| derek-negotiator | Negotiation | zai/glm-5-turbo | ✅ Ready |
+| sourcing-agent (Scout) | Sourcing | zai/glm-5-turbo | ✅ Ready |
+| kilocode | CLI Coder | zai/glm-5.1 | ✅ Ready |
+| critic | Code Review | openrouter/moonshotai/kimi-k2-instruct | ✅ Ready |
 
-## Active Tasks to Monitor
-- [ ] Boardroom discussion - Dashboard blockers (QA rejected 2x)
-- [ ] Gateway config restore - Fix bind mode + auth
-- [ ] CTO task assignment - New work for tomorrow
-- [ ] fs-watcher automation - RUNNING
+## Current Project: Sourcing Dashboard
+- **Repo:** `/home/e/sourcing-dashboard/`
+- **Stack:** Next.js 16 + React 19 + TypeScript + Tailwind v3 + Radix UI + shadcn/ui
+- **Build:** ✅ Passing
+- **Deploy:** Vercel (https://sourcing-dashboard-six.vercel.app)
+- **DB:** Turso (libSQL) — users, requests, quotes, files, activity_log, suppliers
 
-## Heartbeat Actions (Zero-RAM System Ops - v2.0)
+### Active Tasks
+| Task | Owner | Status |
+|------|-------|--------|
+| Wire suppliers to real DB (remove mocks) | CTO | 🔄 In Progress |
+| Seed initial supplier data | CTO | 🔄 In Progress |
 
-| Time | Action | Execution Details |
-|------|--------|-------------------|
-| **09:00** | **Morning Standup & Task Assignment** | 1. Run `clawflows run build-standup` (ClawFlows workflow)<br>2. GM (Dereck) reads `memory/STANDUPS/YYYY-MM-DD.md`<br>3. GM assigns CTO their first task of the day. |
-| **12:00** | **Midday Inbox & Progress Check** | 1. Run `/home/e/nb-studio/scripts/check-inbox.sh`<br>2. If Warren or HR have mail, GM spawns them to read/approve budgets or tools.<br>3. Unblock CTO if stuck. |
-| **15:00** | **Afternoon QA & Mail Check** | 1. Run `/home/e/nb-studio/scripts/check-inbox.sh` again.<br>2. Ensure QA has reviewed CTO's morning code using `git-diff-analyzer.sh`.<br>3. Check fs-watcher status. |
-| **18:00** | **EOD Self-Improvement Loop** | 1. GM spawns all active managers (CTO, QA, Warren, HR).<br>2. **Task:** "Review your actions today. Write 1 new optimization or failure-analysis to your `LEARNINGS.md` file."<br>3. Trigger system-wide summary for E (President). |
+### Completed Recently
+- ✅ Frontend Foundation Overhaul (shadcn/ui migration) 
+- ✅ Duplicate Request + Copy Link buttons
+- ✅ Accept quote fix
+- ✅ Notification bell wired to real data
+- ✅ Customer dashboard improvements
+- ✅ Sign-out button fix
+- ✅ Security audit & sanitization hardening
 
-### Legacy Checks (Background)
-- fs-watcher status (`pgrep -f fs-watcher`)
-- Dashboard update (`update-dashboard.sh`)
-- Subagent sessions check
-- Free tier monitoring
-- BLOCKERS.md scan
-- ClawFlows scheduler (OpenClaw cron: `clawflows-scheduler`, runs every 15 min)
+## System Status
+- **Gateway:** v2026.3.24 (updating to v2026.4.2)
+- **WhatsApp:** Connected (+8618566570937)
+- **Budget:** $0/day (all free models)
+- **Cron Jobs:** auto-tag ✅, daily-summary ✅, weekly-summary ✅
 
-## ✅ New Capabilities (2026-03-25)
+## Pending Decisions (need Etia)
+- 🔴 Send Project Spider RFQs to STW & Goochain (awaiting approval)
+- 🟡 WhatsApp DM binding for executive briefings
+- 🟡 Derek negotiation strategy for first supplier outreach
 
-### ClawFlows - 112 Prebuilt Workflows
-**Location:** `~/.openclaw/workspace/clawflows`
-**CLI:** `clawflows`
-**Enabled:** `update-clawflows`, `build-standup`
-**Scheduler:** Running via OpenClaw cron (every 15 min)
+## shadcn/ui Components Available
+avatar, badge, button, card, command, dialog, dropdown-menu, input, input-group, label, loader, popover, select, separator, sheet, sonner, table, tabs, textarea, tooltip
 
-**Quick commands:**
-```bash
-clawflows list                  # Browse all 112 workflows
-clawflows enable <name>         # Enable a workflow
-clawflows run <name>            # Run manually
-clawflows dashboard             # Open dashboard
-```
-
-### ClawTeam - Multi-Agent Coordination
-**Location:** `~/.local/bin/clawteam` (via pipx)
-**Purpose:** Spawn parallel worker agents for complex tasks
-**CLI:** `clawteam`
-
-**Quick commands:**
-```bash
-clawteam spawn --team my-team --agent-name worker1 --task "task" --agent openclaw
-clawteam launch <template> --team <name> --goal "goal"
-clawteam board attach <team>    # Monitor swarm
-```
-
-**Documentation:**
-- `notes/CLAWFLOWS_INSTALLED.md`
-- `notes/CLAWTEAM_PACKS_INSTALLED.md`
-
-## 📅 Bi-Weekly Tasks (Every 2 Weeks)
-
-### Documentation Review
-- **Task:** Review and update ESTUDIO_WORKFLOW_DOCUMENTATION.md
-- **Location:** `~/Documents/ESTUDIO_WORKFLOW_DOCUMENTATION.md`
-- **Check:**
-  - [ ] Agent roster still accurate?
-  - [ ] Pipeline stages unchanged?
-  - [ ] Cost thresholds current?
-  - [ ] New systems/processes to add?
-  - [ ] Copy updated version to ~/Documents/
-- **Next review:** [Set 2-week reminder]
-
-## Dashboard Location
-- **Local:** `/home/e/nb-studio/00_MISSION_CONTROL/DASHBOARD.md`
-- **Web:** Check OpenClaw dashboard at `http://127.0.0.1:18789/`
+### Shared Domain Components
+stat-card, empty-state, page-header, status-badge

@@ -56,7 +56,7 @@ conversation_turn() {
 
     # Speak response
     echo "🔊 Speaking..."
-    echo "$RESPONSE" | spd-say
+    echo "$RESPONSE" | edge-say
 
     return 0
 }

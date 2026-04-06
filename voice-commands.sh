@@ -47,12 +47,12 @@ try:
     if "start" in text and "gateway" in text:
         print("🚀 Starting gateway...")
         subprocess.run(['systemctl', '--user', 'start', 'openclaw-gateway'])
-        subprocess.run(['spd-say', 'Gateway started'])
+        subprocess.run(['edge-say', 'Gateway started'])
         
     elif "stop" in text and "gateway" in text:
         print("🛑 Stopping gateway...")
         subprocess.run(['systemctl', '--user', 'stop', 'openclaw-gateway'])
-        subprocess.run(['spd-say', 'Gateway stopped'])
+        subprocess.run(['edge-say', 'Gateway stopped'])
         
     elif "status" in text:
         print("📊 Checking status...")
@@ -60,15 +60,15 @@ try:
                               capture_output=True, text=True)
         if 'active (running)' in result.stdout:
             print("✅ Gateway is running")
-            subprocess.run(['spd-say', 'Gateway is running'])
+            subprocess.run(['edge-say', 'Gateway is running'])
         else:
             print("⚠️  Gateway is not running")
-            subprocess.run(['spd-say', 'Gateway is not running'])
+            subprocess.run(['edge-say', 'Gateway is not running'])
             
     elif "dashboard" in text or "mission" in text:
         print("🖥️  Opening dashboard...")
         subprocess.run(['xdg-open', 'http://localhost:4001'])
-        subprocess.run(['spd-say', 'Opening dashboard'])
+        subprocess.run(['edge-say', 'Opening dashboard'])
         
     elif "agent" in text:
         # Extract agent name and message
@@ -76,26 +76,26 @@ try:
         if parts:
             print(f"🤖 Sending to agent: {parts}")
             print("   (Agent integration requires gateway)")
-            subprocess.run(['spd-say', f'Sending to agent: {parts}'])
+            subprocess.run(['edge-say', f'Sending to agent: {parts}'])
         
     elif "time" in text:
         from datetime import datetime
         time_str = datetime.now().strftime('%I:%M %p')
         print(f"🕐 Current time: {time_str}")
-        subprocess.run(['spd-say', f'The time is {time_str}'])
+        subprocess.run(['edge-say', f'The time is {time_str}'])
         
     elif "thank" in text:
         print("😊 You're welcome!")
-        subprocess.run(['spd-say', 'You are welcome'])
+        subprocess.run(['edge-say', 'You are welcome'])
         
     else:
         print(f"❓ Unknown command: {text}")
         print("   Try: start/stop gateway, status, dashboard, agent [name]")
-        subprocess.run(['spd-say', 'I did not understand that command'])
+        subprocess.run(['edge-say', 'I did not understand that command'])
     
 except sr.UnknownValueError:
     print("⚠️  Could not understand command")
-    subprocess.run(['spd-say', 'Could not understand'])
+    subprocess.run(['edge-say', 'Could not understand'])
 except sr.RequestError as e:
     print(f"⚠️  Service error: {e}")
 except Exception as e:

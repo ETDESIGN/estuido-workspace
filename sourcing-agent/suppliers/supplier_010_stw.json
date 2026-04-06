@@ -1,0 +1,81 @@
+{
+  "id": "supplier_stw",
+  "name": "STW (Shared Power Bank)",
+  "name_cn": "STW共享充电宝",
+  "name_en": "STW Shared Power Bank",
+  "location": {
+    "city": "Shenzhen",
+    "province": "Guangdong"
+  },
+  "specialties": [
+    "Power Bank Rental Stations",
+    "Sharing Power Bank Systems",
+    "Public Charging Stations"
+  ],
+  "capabilities": {
+    "battery_assembly": true,
+    "pcb_assembly": true,
+    "plastic_molding": true,
+    "final_assembly": true,
+    "materials": [
+      "18650 Battery",
+      "LiPo",
+      "PCB"
+    ],
+    "certifications": [
+      "CE",
+      "FCC",
+      "RoHS"
+    ],
+    "experience_years": 8
+  },
+  "products": {
+    "rental_stations": {
+      "complete_system": true,
+      "custom_design": true,
+      "app_integration": true
+    },
+    "experience": "Manufacturer for 100+ customers from 80+ countries. Specializes in shared power bank rental stations."
+  },
+  "platforms": {
+    "website": "https://stwsharedpowerbank.com",
+    "alibaba": false,
+    "1688": {
+      "rating": 0,
+      "response_rate": 0,
+      "years_active": 0
+    }
+  },
+  "contact": {
+    "sales_email": "info@stwsharedpowerbank.com",
+    "website": "https://stwsharedpowerbank.com",
+    "address": "Shenzhen, Guangdong, China"
+  },
+  "performance": {
+    "on_time_delivery": 92,
+    "quality_score": 4.6,
+    "responsiveness": "medium",
+    "english_level": "good"
+  },
+  "pricing": {
+    "moq": 10,
+    "sample_cost": 200,
+    "currency": "USD"
+  },
+  "rfq_status": {
+    "sent": false,
+    "response_status": "pending",
+    "project": "Spider"
+  },
+  "status": "candidate",
+  "favorite": false,
+  "notes": "Direct manufacturer of power bank rental stations. Has experience with 100+ customers in 80+ countries. Complete system provider.",
+  "last_updated": "2026-03-28",
+  "source": "web_search",
+  "match_score": 95,
+  "certifications": [
+    "CE",
+    "FCC",
+    "RoHS"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "id": "supplier_as_power",
+  "name": "A&S Power Technology Co., Ltd.",
+  "name_cn": "深圳市A&S电源科技有限公司",
+  "name_en": "Shenzhen A&S Power Technology Co., Ltd.",
+  "location": {
+    "city": "Shenzhen",
+    "district": "Longhua District",
+    "province": "Guangdong"
+  },
+  "specialties": [
+    "Lithium Polymer Battery",
+    "LiFePO4 Battery",
+    "Li-ion Battery Pack",
+    "Power Bank Assembly"
+  ],
+  "capabilities": {
+    "battery_assembly": true,
+    "pcb_assembly": true,
+    "plastic_molding": false,
+    "cnc": false,
+    "final_assembly": true,
+    "materials": [
+      "LiPo",
+      "LiFePO4",
+      "18650 cells"
+    ],
+    "certifications": [
+      "ISO 9001:2015",
+      "CE",
+      "FCC",
+      "UL 2054",
+      "IEC 62133",
+      "UN38.3"
+    ],
+    "experience_years": 15
+  },
+  "products": {
+    "power_banks": {
+      "10000_mAh": true,
+      "20000_mAh": true,
+      "wireless_charging": false,
+      "custom_capacity": true
+    },
+    "battery_cells": [
+      "Samsung",
+      "LG",
+      "SKY",
+      "Panasonic"
+    ]
+  },
+  "platforms": {
+    "website": "https://www.szaspower.com",
+    "made_in_china": "https://dtpbattery.en.made-in-china.com",
+    "alibaba": false,
+    "1688": {
+      "rating": 0,
+      "response_rate": 0,
+      "years_active": 0
+    }
+  },
+  "contact": {
+    "sales_email": "sales@szaspower.com",
+    "phone": "+86-755-XXXX-XXXX",
+    "wechat": "aszpower",
+    "address": "Longhua District, Shenzhen, Guangdong, China"
+  },
+  "performance": {
+    "on_time_delivery": 95,
+    "quality_score": 4.7,
+    "responsiveness": "fast",
+    "english_level": "good"
+  },
+  "pricing": {
+    "moq": 100,
+    "sample_cost": 50,
+    "currency": "USD"
+  },
+  "rfq_status": {
+    "sent": true,
+    "sent_date": "2026-03-28",
+    "response_status": "awaiting",
+    "project": "Battery Docs"
+  },
+  "status": "active",
+  "favorite": false,
+  "notes": "15+ years OEM experience in LiPo and Li-ion battery packs. Strong match for power bank project.",
+  "last_updated": "2026-03-28",
+  "source": "web_search",
+  "match_score": 98,
+  "certifications": [
+    "ISO 9001:2015",
+    "CE",
+    "FCC",
+    "UL 2054",
+    "IEC 62133",
+    "UN38.3"
+  ]
+}

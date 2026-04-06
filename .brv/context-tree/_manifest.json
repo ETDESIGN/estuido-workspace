@@ -1,0 +1,97 @@
+{
+  "active_context": [
+    {
+      "order": 3,
+      "path": "_index.md",
+      "tokens": 579,
+      "type": "summary"
+    },
+    {
+      "order": 2,
+      "path": "business/_index.md",
+      "tokens": 204,
+      "type": "summary"
+    },
+    {
+      "order": 2,
+      "path": "infrastructure/_index.md",
+      "tokens": 273,
+      "type": "summary"
+    },
+    {
+      "order": 2,
+      "path": "project_management/_index.md",
+      "tokens": 204,
+      "type": "summary"
+    },
+    {
+      "order": 2,
+      "path": "structure/_index.md",
+      "tokens": 487,
+      "type": "summary"
+    },
+    {
+      "order": 1,
+      "path": "business/company_profile/_index.md",
+      "tokens": 142,
+      "type": "summary"
+    },
+    {
+      "importance": 50,
+      "path": "business/company_profile/estudio_profile.md",
+      "tokens": 154,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "infrastructure/comms_config/communication_channels.md",
+      "tokens": 177,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "infrastructure/system_config/system_infrastructure.md",
+      "tokens": 200,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "memory/project_decisions/project_decisions.md",
+      "tokens": 127,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "memory/workflows/agent_workflows.md",
+      "tokens": 114,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "project_management/project_spider/project_spider_supplier_sourcing.md",
+      "tokens": 362,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "structure/agents/agent_topology_and_protocols.md",
+      "tokens": 266,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "structure/operational_patterns/operational_patterns_and_learnings.md",
+      "tokens": 343,
+      "type": "context"
+    }
+  ],
+  "generated_at": "2026-03-29T20:01:14.091Z",
+  "lane_tokens": {
+    "contexts": 1743,
+    "stubs": 0,
+    "summaries": 1889
+  },
+  "source_fingerprint": "7e9027b121409c75969db3f57e47328bea1c4d8931fcce3a46ff1b18365b665d",
+  "total_tokens": 3632,
+  "version": 1
+}

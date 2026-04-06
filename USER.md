@@ -39,7 +39,8 @@
 ## Budget & Resources
 - **AI Budget:** <$50/month target
 - **Current spend:** ~$0.41/day (well under budget)
-- **System RAM:** 5GB total (constraint for local models)
+- **System RAM:** 16GB total (upgraded from 5GB)
+- **Disk:** 458GB total, 111GB used (26%)
 
 ## Notes
 - Prefers structured requests with constraints (e.g., "token-efficient", "zero input")

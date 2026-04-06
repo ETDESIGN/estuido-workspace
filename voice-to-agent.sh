@@ -76,7 +76,7 @@ try:
             print(f"\n👤 You: {text}")
             print(f"🤖 {AGENT_NAME}: {agent_response}")
             print(f"\n🔊 Speaking response...")
-            subprocess.run(['spd-say', agent_response])
+            subprocess.run(['edge-say', agent_response])
         else:
             print("⚠️  No response from agent")
             

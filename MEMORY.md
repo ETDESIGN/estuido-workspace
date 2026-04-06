@@ -80,11 +80,12 @@ workspace/
 | System | Status | Location | Notes |
 |--------|--------|----------|-------|
 | **4-Manager Hierarchy** | ✅ OPERATIONAL | CTO, QA, Warren, GM | Phase 5-6 complete |
-| Mission Control (builderz) | Running ✅ | localhost:4001 (primary) | Version 1.3.0 |
+| Mission Control (builderz) | Running ✅ | localhost:4001 (primary) | v1.3.0 |
 | Mission Control (old) | Discontinued | Was localhost:4000 | Legacy |
 | Command Center | Discontinued | Was localhost:3333 | Replaced |
-| Dashboard v2 | Local dev | localhost:3000 + :3002 | Feature complete |
+| Dashboard v2 | ✅ PRODUCTION | https://sourcing-dashboard-six.vercel.app | shadcn migrated, all pages |
 | Backend API | Running | Express on :3002 | Active |
+| Sourcing Dashboard | ✅ Vercel | Next.js 16.2.2 + shadcn/ui | All pages migrated, loading states added |
 | Tool Pipeline | Active | FS-watcher monitoring | Auto-triggers |
 | Cost Monitor | Active | Cron every hour | $0.41/day |
 | QMD Search | Active | ~/.cache/qmd/index.sqlite | BM25 + vectors |
@@ -106,7 +107,7 @@ workspace/
 ### System Constraints (Important!)
 | Resource | Limit | Implication |
 |----------|-------|-------------|
-| RAM | 5GB total, 2.2GB free | Cannot run models >1GB |
+| RAM | 16GB total, ~8GB available (upgraded from 5GB) | Can run models up to 4-6GB |
 | Swap | 1.7GB used | Performance risk |
 | Daily API Budget | $5.00 | Currently $0.41 ✅ |
 | Brave Search | Rate limited | Need Tavily backup |

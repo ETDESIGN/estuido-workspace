@@ -1,0 +1,236 @@
+{
+  "main": {
+    "id": "5822633dea4ba451",
+    "type": "split",
+    "children": [
+      {
+        "id": "19e94d11158bf30a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "46ed12cb2eb42b5b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "stitch-prompts.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "stitch-prompts"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "60612a835e30c3fc",
+    "type": "split",
+    "children": [
+      {
+        "id": "8d61fca2a4ce49fb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "55178e48aa24f3ca",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "3d2daa35d44a3c71",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "074a34ae6715ab3c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "37b0f108903f1efb",
+    "type": "split",
+    "children": [
+      {
+        "id": "d39caaae975e7f06",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d87f4138eb6584cd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "notes/dev-team-research-2026-03-30.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for dev-team-research-2026-03-30"
+            }
+          },
+          {
+            "id": "59c1809ec6ffc923",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "notes/dev-team-research-2026-03-30.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from dev-team-research-2026-03-30"
+            }
+          },
+          {
+            "id": "8f42ecd03aa736e4",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "c8f44635168c9854",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "e9f8077445943d08",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "notes/dev-team-research-2026-03-30.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of dev-team-research-2026-03-30"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "46ed12cb2eb42b5b",
+  "lastOpenFiles": [
+    "media-inbound/cfa56b57-4e85-40ae-9ff9-5a358acbe480.ogg",
+    "media-inbound/7de3a6b9-52e8-4ff1-94ff-a6470c7ce30d.ogg",
+    "media-inbound/0e6ea509-9809-4577-96e1-3e55f26dce21.ogg",
+    "media-inbound/38761adf-622f-4704-866f-92d6764333dd.ogg",
+    "media-inbound/743c3608-512e-4722-9bce-6a6d2a48eed0.ogg",
+    "tools/send-email.py",
+    "tools",
+    "config/himalaya-completion.1",
+    "config/himalaya-manual.1",
+    "config/himalaya-template.1",
+    "config/himalaya-attachment.1",
+    "memory/active/daily/SUMMARY-2026-04-01.md",
+    "brevo-login.png",
+    "resend-signup.png",
+    "memory/token-tracker-2026-04-01.md",
+    "memory/2026-04-01-night-shift.md",
+    "03-requests.png",
+    "02-profile.png",
+    "01-dashboard.png",
+    "memory/SPIDER_SUPPLIER_RESEARCH.md",
+    "08-dashboard-mobile.png",
+    "07-profile-mobile.png",
+    "06-login-mobile.png",
+    "02-register-desktop.png",
+    "12-requests-mobile.png",
+    "memory/2026-04-01.md",
+    "notes/dev-team-research-2026-03-30.md",
+    "memory/EOD_SUMMARY_2026-03-31.md",
+    "clawflows/system/scheduler-report-2026-03-31-3-45-PM.md",
+    "clawflows/system/scheduler-report-2026-03-31.md",
+    "memory/briefing-2026-03-31.md",
+    "memory/STANDUPS/2026-03-31.md",
+    "memory/token-tracker-2026-03-31.md",
+    "clawflows/system/runs/2026-03-31/build-standup/standup-content.md",
+    "clawflows/system/scheduler-report-$(date +%Y-%m-%d).md",
+    "memory/tasks/T-008-system-integration.md",
+    "memory/tasks/T-007-quality-testing.md",
+    "memory/tasks/T-006-planning-system.md",
+    "memory/tasks/T-005-dashboard-ux-overhaul.md",
+    "memory/tasks/T-004-ui-component-library.md",
+    "memory/tasks/T-003-frontend-architecture.md",
+    "sourcing-agent/drafts/quotes/SQ-20260331061658.md",
+    "skills/quote-invoice-workbench/tests/smoke-test.md",
+    "skills/quote-invoice-workbench/examples/example-prompt.md",
+    "skills/quote-invoice-workbench/SKILL.md",
+    "skills/quote-invoice-workbench/SELF_CHECK.md"
+  ]
+}

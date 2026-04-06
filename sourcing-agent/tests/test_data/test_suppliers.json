@@ -1,0 +1,63 @@
+{
+  "id": "supplier_test_acme",
+  "name": "Acme CNC Works (测试工厂)",
+  "name_cn": "测试精密制造有限公司",
+  "name_en": "Acme CNC Works Ltd.",
+  "location": {
+    "city": "Dongguan",
+    "district": "Changping",
+    "address": "Test address #123, Changping Town",
+    "coordinates": {
+      "lat": 23.0207,
+      "lng": 113.7518
+    }
+  },
+  "specialties": ["CNC Machining", "Aluminum", "Steel"],
+  "capabilities": {
+    "cnc": true,
+    "injection_molding": false,
+    "pcb": false,
+    "materials": ["Aluminum 6061", "Aluminum 7075", "Stainless 304", "Stainless 316"],
+    "max_part_size": "500mm x 500mm x 500mm",
+    "tolerance": "±0.05mm"
+  },
+  "certifications": ["ISO 9001:2015"],
+  "verification": {
+    "business_license": "TEST-LICENSE-001",
+    "license_verified": true,
+    "factory_verified": true,
+    "trading_company": false
+  },
+  "platforms": {
+    "1688": {
+      "url": "https://test.1688.com/shop/test",
+      "chengthong": true,
+      "powerful_merchant": false,
+      "worker_count": "51-100",
+      "years_active": 5,
+      "response_rate": 98,
+      "rating": 4.5
+    }
+  },
+  "contact": {
+    "wechat": "test_wechat_id",
+    "email": "test@acme-cnc.example.com",
+    "phone": "+86-138-0000-0001",
+    "1688_chat": "available"
+  },
+  "pricing": {
+    "currency": "USD",
+    "moq": 100,
+    "sample_cost": 50,
+    "tooling_cost": "varies"
+  },
+  "performance": {
+    "on_time_delivery": 95,
+    "quality_score": 4.3,
+    "responsiveness": "fast"
+  },
+  "notes": "Test supplier for QA validation",
+  "last_updated": "2026-03-28",
+  "status": "active",
+  "favorite": false
+}

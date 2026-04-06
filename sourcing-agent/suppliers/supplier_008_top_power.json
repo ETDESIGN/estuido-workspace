@@ -1,0 +1,93 @@
+{
+  "id": "supplier_top_power",
+  "name": "TOP Power",
+  "name_cn": "深圳市拓普电源科技有限公司",
+  "name_en": "Shenzhen TOP Power Technology Co., Ltd.",
+  "location": {
+    "city": "Shenzhen",
+    "district": "Bao'an District",
+    "province": "Guangdong"
+  },
+  "specialties": [
+    "Battery Chargers",
+    "Polymer Battery Chargers",
+    "Power Supply",
+    "Li-ion Chargers"
+  ],
+  "capabilities": {
+    "battery_assembly": true,
+    "pcb_assembly": true,
+    "plastic_molding": false,
+    "cnc": false,
+    "final_assembly": true,
+    "materials": [
+      "LiPo",
+      "Li-ion"
+    ],
+    "certifications": [
+      "UL",
+      "FCC",
+      "CE",
+      "SAA",
+      "RCM",
+      "PSE"
+    ],
+    "experience_years": 10
+  },
+  "products": {
+    "power_banks": {
+      "custom_capacity": true,
+      "charger_integrated": true
+    },
+    "chargers": [
+      "8.4V lithium charger",
+      "12.6V lithium charger",
+      "84V high power charger"
+    ]
+  },
+  "platforms": {
+    "website": "https://www.sz-toppower.com",
+    "alibaba": false,
+    "1688": {
+      "rating": 0,
+      "response_rate": 0,
+      "years_active": 0
+    }
+  },
+  "contact": {
+    "sales_email": "sales@sz-toppower.com",
+    "phone": "+86-755-XXXX-XXXX",
+    "address": "Bao'an District, Shenzhen, Guangdong, China"
+  },
+  "performance": {
+    "on_time_delivery": 90,
+    "quality_score": 4.3,
+    "responsiveness": "fast",
+    "english_level": "good"
+  },
+  "pricing": {
+    "moq": 500,
+    "sample_cost": 60,
+    "currency": "USD"
+  },
+  "rfq_status": {
+    "sent": true,
+    "sent_date": "2026-03-28",
+    "response_status": "awaiting",
+    "project": "Battery Docs"
+  },
+  "status": "active",
+  "favorite": false,
+  "notes": "All required certifications (UL, FCC, CE). Specializes in battery chargers and power supplies.",
+  "last_updated": "2026-03-28",
+  "source": "web_search",
+  "match_score": 95,
+  "certifications": [
+    "UL",
+    "FCC",
+    "CE",
+    "SAA",
+    "RCM",
+    "PSE"
+  ]
+}

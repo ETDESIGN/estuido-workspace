@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>New Sourcing Request | Midnight Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error-container": "#93000a",
+              "outline": "#8c909f",
+              "primary-fixed-dim": "#adc6ff",
+              "surface-dim": "#0b1326",
+              "on-primary": "#002e6a",
+              "on-tertiary-fixed": "#2a1700",
+              "secondary-fixed": "#6ffbbe",
+              "on-tertiary-fixed-variant": "#653e00",
+              "surface-variant": "#2d3449",
+              "surface-container-low": "#131b2e",
+              "primary-container": "#4d8eff",
+              "on-secondary": "#003824",
+              "secondary-fixed-dim": "#4edea3",
+              "on-primary-fixed": "#001a42",
+              "on-surface-variant": "#c2c6d6",
+              "inverse-surface": "#dae2fd",
+              "error": "#ffb4ab",
+              "secondary": "#4edea3",
+              "surface-container": "#171f33",
+              "on-error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#005236",
+              "surface-tint": "#adc6ff",
+              "surface-bright": "#31394d",
+              "secondary-container": "#00a572",
+              "on-tertiary-container": "#3e2400",
+              "on-error": "#690005",
+              "tertiary-fixed-dim": "#ffb95f",
+              "surface-container-lowest": "#060e20",
+              "on-primary-container": "#00285d",
+              "on-background": "#dae2fd",
+              "on-secondary-fixed": "#002113",
+              "primary-fixed": "#d8e2ff",
+              "surface": "#0b1326",
+              "on-surface": "#dae2fd",
+              "tertiary-fixed": "#ffddb8",
+              "inverse-on-surface": "#283044",
+              "outline-variant": "#424754",
+              "on-primary-fixed-variant": "#004395",
+              "surface-container-highest": "#2d3449",
+              "on-secondary-container": "#00311f",
+              "background": "#0b1326",
+              "tertiary-container": "#ca8100",
+              "inverse-primary": "#005ac2",
+              "primary": "#adc6ff",
+              "surface-container-high": "#222a3d",
+              "tertiary": "#ffb95f",
+              "on-tertiary": "#472a00"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .shimmer {
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30 min-h-screen flex flex-col">
+<!-- Top Navigation Bar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-slate-950/60 backdrop-blur-xl shadow-2xl shadow-slate-950/50">
+<div class="text-xl font-bold text-slate-50 flex items-center gap-2 font-['Inter'] tracking-tight">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-base" data-icon="factory">factory</span>
+</div>
+<span>Midnight Architect</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-['Inter'] tracking-tight" href="#">Features</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-['Inter'] tracking-tight" href="#">How it Works</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-blue-200 dark:text-blue-200 hover:bg-slate-800/50 rounded-full transition-all px-4 py-2 font-['Inter'] tracking-tight">Sign In</button>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed px-6 py-2 rounded-full font-semibold hover:scale-105 transition-all">Get Started</button>
+</div>
+</nav>
+<!-- Side Navigation (Suppressed for focused wizard journey per UX goal) -->
+<main class="flex-grow pt-24 pb-32 px-4 md:px-0 flex flex-col items-center">
+<!-- Back Navigation -->
+<div class="w-full max-w-4xl mb-8">
+<a class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:-translate-x-1 transition-transform" data-icon="arrow_back">arrow_back</span>
+<span class="text-sm font-medium tracking-wide">Back to requests</span>
+</a>
+</div>
+<!-- Header Section -->
+<div class="w-full max-w-4xl mb-12">
+<h1 class="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight">New Sourcing Request</h1>
+<p class="text-on-surface-variant text-lg">Tell us what you need, and we'll connect you with the world's best suppliers.</p>
+</div>
+<!-- Step Indicator & Progress -->
+<div class="w-full max-w-4xl mb-16">
+<div class="relative w-full h-1.5 bg-surface-container rounded-full overflow-hidden mb-10">
+<div class="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-primary to-primary-container relative">
+<div class="shimmer absolute inset-0 opacity-30"></div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-secondary flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<span class="text-xs font-bold tracking-[0.05em] uppercase text-on-surface-variant">Basic Info</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold">2</div>
+<span class="text-xs font-bold tracking-[0.05em] uppercase text-primary">Specifications</span>
+</div>
+<div class="flex flex-col items-center gap-3 opacity-40">
+<div class="w-10 h-10 rounded-full border-2 border-outline flex items-center justify-center text-outline font-bold">3</div>
+<span class="text-xs font-bold tracking-[0.05em] uppercase text-on-surface-variant">Review and Submit</span>
+</div>
+</div>
+</div>
+<!-- Form Card -->
+<div class="w-full max-w-4xl bg-surface-container-low rounded-lg p-8 md:p-12 shadow-2xl">
+<div class="mb-10">
+<h2 class="text-2xl font-bold text-white mb-2">Specifications</h2>
+<p class="text-on-surface-variant">Add specific requirements. All fields optional.</p>
+</div>
+<form class="space-y-8">
+<!-- 2x2 Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold tracking-wider uppercase text-on-surface-variant ml-4">Material</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-primary/40 text-on-surface placeholder:text-outline-variant transition-all" placeholder="e.g. Brushed Aluminum, Organic Cotton" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold tracking-wider uppercase text-on-surface-variant ml-4">Size / Dimensions</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-primary/40 text-on-surface placeholder:text-outline-variant transition-all" placeholder="e.g. 150cm x 200cm, standard A4" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold tracking-wider uppercase text-on-surface-variant ml-4">Color</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-primary/40 text-on-surface placeholder:text-outline-variant transition-all" placeholder="e.g. Midnight Navy, Pantone 19-4052" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold tracking-wider uppercase text-on-surface-variant ml-4">Packaging</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-primary/40 text-on-surface placeholder:text-outline-variant transition-all" placeholder="e.g. Eco-friendly, Retail Ready" type="text"/>
+</div>
+</div>
+<!-- Full Width Certification -->
+<div class="space-y-2">
+<label class="text-xs font-bold tracking-wider uppercase text-on-surface-variant ml-4">Certifications</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-primary/40 text-on-surface placeholder:text-outline-variant transition-all" placeholder="e.g. ISO 9001, Fair Trade, OEKO-TEX" type="text"/>
+</div>
+<!-- Textareas -->
+<div class="space-y-8 mt-12">
+<div class="space-y-2">
+<label class="text-xs font-bold tracking-wider uppercase text-on-surface-variant ml-4">Additional Specifications</label>
+<textarea class="w-full bg-surface-container-lowest border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/40 text-on-surface placeholder:text-outline-variant transition-all resize-none" placeholder="Describe any technical nuances, finishing requirements, or quality benchmarks..." rows="4"></textarea>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2 ml-4">
+<label class="text-xs font-bold tracking-wider uppercase text-on-surface-variant">Internal Notes</label>
+<span class="bg-surface-container-highest text-[10px] px-2 py-0.5 rounded-full text-primary-fixed-dim uppercase tracking-tighter">Private</span>
+</div>
+<textarea class="w-full bg-surface-container-lowest border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/40 text-on-surface placeholder:text-outline-variant transition-all resize-none" placeholder="Notes for your internal procurement team. These will not be shared with suppliers." rows="3"></textarea>
+</div>
+</div>
+</form>
+</div>
+</main>
+<!-- Sticky Bottom Wizard Controls -->
+<div class="fixed bottom-0 w-full bg-surface-container-low/80 backdrop-blur-md border-t border-white/5 py-6 px-8 z-40">
+<div class="max-w-4xl mx-auto flex justify-between items-center">
+<button class="px-8 py-3 rounded-full border border-outline-variant text-on-surface-variant font-semibold hover:bg-surface-container-highest transition-all flex items-center gap-2">
+                Back
+            </button>
+<button class="px-10 py-3 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-bold flex items-center gap-2 hover:shadow-lg hover:shadow-primary/20 transition-all group active:scale-95">
+                Continue
+                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Footer (Shared Component) -->
+<footer class="w-full border-t border-slate-800/50 px-8 flex justify-between items-center py-12 bg-[#0b1326]">
+<div class="text-sm font-bold text-slate-300 font-['Inter']">Midnight Architect</div>
+<div class="text-xs font-['Inter'] text-slate-500">© 2024 Midnight Architect Sourcing. All rights reserved.</div>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-blue-300 transition-colors text-xs font-['Inter']" href="#">Privacy</a>
+<a class="text-slate-500 hover:text-blue-300 transition-colors text-xs font-['Inter']" href="#">Terms</a>
+<a class="text-slate-500 hover:text-blue-300 transition-colors text-xs font-['Inter']" href="#">Support</a>
+</div>
+</footer>
+</body></html>

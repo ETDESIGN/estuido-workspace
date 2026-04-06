@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign In | Midnight Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error-container": "#93000a",
+                        "outline": "#8c909f",
+                        "primary-fixed-dim": "#adc6ff",
+                        "surface-dim": "#0b1326",
+                        "on-primary": "#002e6a",
+                        "on-tertiary-fixed": "#2a1700",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "surface-variant": "#2d3449",
+                        "surface-container-low": "#131b2e",
+                        "primary-container": "#4d8eff",
+                        "on-secondary": "#003824",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-primary-fixed": "#001a42",
+                        "on-surface-variant": "#c2c6d6",
+                        "inverse-surface": "#dae2fd",
+                        "error": "#ffb4ab",
+                        "secondary": "#4edea3",
+                        "surface-container": "#171f33",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-tint": "#adc6ff",
+                        "surface-bright": "#31394d",
+                        "secondary-container": "#00a572",
+                        "on-tertiary-container": "#3e2400",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "surface-container-lowest": "#060e20",
+                        "on-primary-container": "#00285d",
+                        "on-background": "#dae2fd",
+                        "on-secondary-fixed": "#002113",
+                        "primary-fixed": "#d8e2ff",
+                        "surface": "#0b1326",
+                        "on-surface": "#dae2fd",
+                        "tertiary-fixed": "#ffddb8",
+                        "inverse-on-surface": "#283044",
+                        "outline-variant": "#424754",
+                        "on-primary-fixed-variant": "#004395",
+                        "surface-container-highest": "#2d3449",
+                        "on-secondary-container": "#00311f",
+                        "background": "#0b1326",
+                        "tertiary-container": "#ca8100",
+                        "inverse-primary": "#005ac2",
+                        "primary": "#adc6ff",
+                        "surface-container-high": "#222a3d",
+                        "tertiary": "#ffb95f",
+                        "on-tertiary": "#472a00"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grid-overlay {
+            background-image: radial-gradient(circle at 2px 2px, rgba(173, 198, 255, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased selection:bg-primary-container/30">
+<div class="flex min-h-screen flex-col md:flex-row overflow-hidden">
+<!-- Left Section: Branding & Features -->
+<section class="relative hidden md:flex md:w-5/12 lg:w-1/2 flex-col justify-between p-12 lg:p-16 bg-surface-container-lowest">
+<!-- Background Decoration -->
+<div class="absolute inset-0 z-0 bg-gradient-to-br from-surface via-surface-container-low to-surface-container-lowest opacity-100"></div>
+<div class="absolute inset-0 z-0 grid-overlay"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-24">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center shadow-lg">
+<span class="text-xl">🏭</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-on-surface">Midnight Architect</span>
+</div>
+<div class="space-y-6 max-w-md">
+<h1 class="text-display-md text-5xl font-extrabold tracking-tighter text-white">Welcome back</h1>
+<p class="text-on-surface-variant text-lg leading-relaxed">Sign in to your sourcing dashboard to orchestrate your global supply chain with surgical precision.</p>
+</div>
+<div class="mt-16 space-y-8 max-w-sm">
+<!-- Feature Item 1 -->
+<div class="group flex items-start gap-5 p-4 rounded-lg hover:bg-surface-container-low transition-all duration-300">
+<div class="w-12 h-12 shrink-0 rounded-full bg-surface-container-high flex items-center justify-center text-primary border border-outline-variant/10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+</div>
+<div>
+<h3 class="font-semibold text-white">Manage requests</h3>
+<p class="text-sm text-on-surface-variant mt-1">Centralize all RFQs and industrial requirements in one editorial space.</p>
+</div>
+</div>
+<!-- Feature Item 2 -->
+<div class="group flex items-start gap-5 p-4 rounded-lg hover:bg-surface-container-low transition-all duration-300">
+<div class="w-12 h-12 shrink-0 rounded-full bg-surface-container-high flex items-center justify-center text-secondary border border-outline-variant/10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<div>
+<h3 class="font-semibold text-white">Compare quotes</h3>
+<p class="text-sm text-on-surface-variant mt-1">Leverage automated analysis to identify optimal pricing and lead times.</p>
+</div>
+</div>
+<!-- Feature Item 3 -->
+<div class="group flex items-start gap-5 p-4 rounded-lg hover:bg-surface-container-low transition-all duration-300">
+<div class="w-12 h-12 shrink-0 rounded-full bg-surface-container-high flex items-center justify-center text-tertiary border border-outline-variant/10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+</div>
+<div>
+<h3 class="font-semibold text-white">Track pipeline</h3>
+<p class="text-sm text-on-surface-variant mt-1">Real-time visualization of procurement status from factory to warehouse.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative z-10">
+<p class="text-xs font-label tracking-widest text-on-surface-variant uppercase">© 2024 Midnight Architect Sourcing</p>
+</div>
+</section>
+<!-- Right Section: Login Form -->
+<section class="flex flex-col flex-1 justify-center items-center p-6 sm:p-12 lg:p-24 bg-surface relative">
+<!-- Mobile Logo -->
+<div class="md:hidden flex items-center gap-2 mb-12">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="text-lg">🏭</span>
+</div>
+<span class="text-lg font-bold tracking-tight">Midnight Architect</span>
+</div>
+<div class="w-full max-w-md bg-surface-container-low rounded-lg p-8 sm:p-12 shadow-2xl shadow-surface-container-lowest/50 border border-outline-variant/5">
+<div class="text-center mb-10">
+<h2 class="text-3xl font-bold text-white tracking-tight">Sign In</h2>
+<p class="text-on-surface-variant mt-2 text-sm">Sourcing Dashboard</p>
+</div>
+<form class="space-y-6">
+<!-- Email Field -->
+<div>
+<label class="block text-xs font-label tracking-[0.05em] uppercase text-on-surface-variant mb-2 ml-4" for="email">Email Address</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-full py-4 pl-14 pr-6 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/40 transition-all" id="email" placeholder="name@company.com" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div>
+<div class="flex justify-between items-center mb-2 ml-4 mr-4">
+<label class="block text-xs font-label tracking-[0.05em] uppercase text-on-surface-variant" for="password">Password</label>
+<a class="text-xs text-primary hover:text-primary-fixed-dim transition-colors" href="#">Forgot password?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-full py-4 pl-14 pr-14 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/40 transition-all" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-5 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center gap-2 ml-4">
+<input class="w-4 h-4 rounded bg-surface-container-lowest border-outline-variant text-primary focus:ring-offset-surface" id="remember" type="checkbox"/>
+<label class="text-sm text-on-surface-variant select-none" for="remember">Remember me for 30 days</label>
+</div>
+<!-- Sign In Button -->
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-bold py-4 rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 active:scale-95 transition-all duration-200" type="submit">
+                        Sign In
+                    </button>
+</form>
+<div class="relative my-10">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant/10"></div>
+</div>
+<div class="relative flex justify-center text-xs uppercase">
+<span class="bg-surface-container-low px-4 text-on-surface-variant font-label tracking-widest">Or continue with</span>
+</div>
+</div>
+<!-- Social Login -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-3 py-3 px-4 bg-surface-container-lowest border border-outline-variant/10 rounded-full hover:bg-surface-container-highest transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<img alt="Google Logo" class="w-full h-full object-contain" data-alt="Official Google G color logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHDA9LX05sLI2EH_3xC883muZlBPN4eP84n1ZkaV8H-B0QGhTIVi624Xvic8xqlo6835r0XIS8UxlwhCIztdrhjlaD66-0uIKcFyyggnwGa0YG2uDYY_fi5zIQVnUfxq6d_wFbixuIIegg92Zk6Zh2yZgfOeEbFqKiiRHDhcb9Zk8t-_uvNxZXqxGDsYhfLx5EJvA5yYL0pFQKghwrRh9sicxtDk7ja7hzXors0hQcMYP4dJ0wLwgAjNcmiXATXfMxwyb2gJWz3hWF"/>
+</div>
+<span class="text-sm font-medium text-white">Google</span>
+</button>
+<button class="flex items-center justify-center gap-3 py-3 px-4 bg-surface-container-lowest border border-outline-variant/10 rounded-full hover:bg-surface-container-highest transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<img alt="LinkedIn Logo" class="w-full h-full object-contain" data-alt="Official LinkedIn logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY5jzwsIIRRgyiOTndebe6Cj2i4WNy5JFaPSrcd4HwnRRzccBQaQeJfhE4VIY1bxAZa2eC_b4JhcbzqQTlO0T4-Z5K3Q0rOopnoq212F98cogLlvuQi841mirsAFe4O90VWFHuA_LLdhXWn871pclyRzT8DQNRDmiNp3xG8DeWg6e9TzYN7FmswYX_LhhZVY99UJcDn4M7vgWI8iikcofPsz_7zOe5qb6n5bUVmfDTe0YzILuBLRYx1eN8Z8oGQBtlonFSgHAc60WM"/>
+</div>
+<span class="text-sm font-medium text-white">LinkedIn</span>
+</button>
+</div>
+<div class="mt-10 text-center">
+<p class="text-sm text-on-surface-variant">
+                        Don't have an account? 
+                        <a class="text-primary font-semibold hover:underline underline-offset-4 ml-1" href="#">Create one</a>
+</p>
+</div>
+</div>
+<!-- Bottom Footer for Mobile -->
+<div class="md:hidden mt-12 text-center">
+<p class="text-[10px] font-label tracking-widest text-on-surface-variant uppercase">© 2024 Midnight Architect Sourcing</p>
+</div>
+</section>
+</div>
+</body></html>

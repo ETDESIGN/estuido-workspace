@@ -115,7 +115,7 @@ try:
     print(f"\n🤖 Response: {response}")
     print(f"\n🔊 Speaking response...")
     
-    result = subprocess.run(['spd-say', response], capture_output=True)
+    result = subprocess.run(['edge-say', response], capture_output=True)
     
     if result.returncode == 0:
         print("\n✅ Voice chat completed!")

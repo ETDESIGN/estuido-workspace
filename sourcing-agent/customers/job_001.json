@@ -1,0 +1,14 @@
+{
+  "id": "job_001",
+  "project": "Aluminum Housing v2",
+  "customer": "Acme Corp",
+  "date": "2026-03-25",
+  "status": "approved",
+  "priority": "high",
+  "product_type": "CNC Machining",
+  "material": "Aluminum 6061-T6",
+  "quantity": 500,
+  "tolerance": "±0.05mm",
+  "timeline": "2026-04-15",
+  "description": "Custom aluminum housing for IoT device, anodized black"
+}

@@ -36,3 +36,21 @@ Thumbs.db
 *.tempclient_secret.json
 credentials/
 discord-voice-bot/
+
+# Large generated files
+nb-studio-dashboard/
+dashboards/
+node_modules/
+.next/
+*.pyc
+__pycache__/
+*.ogg
+*.wav
+*.mp3
+archive/audio/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+sourcing-db
+sourcing-db-shm
+sourcing-db-wal

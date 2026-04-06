@@ -3,7 +3,7 @@
 # Watches ~/.openclaw/media/inbound/ for new .ogg files without .txt counterparts
 
 WATCH_DIR="$HOME/.openclaw/media/inbound"
-GROQ_API_KEY="REDACTED"
+GROQ_API_KEY="${GROQ_API_KEY:-}"  # Read from environment
 LOG_FILE="$HOME/.openclaw/workspace/logs/audio-transcribe.log"
 
 mkdir -p "$(dirname "$LOG_FILE")"
